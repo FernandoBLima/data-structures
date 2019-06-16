@@ -24,7 +24,7 @@ class LinkedList {
      * Action to add element to linkedList
      * @param {number} value
      */
-    insertAtHead(value){
+    addAtHead(value){
         if(this.head){
             var newNode = new Node(value, this.head, null );
             this.head.prev = newNode;
