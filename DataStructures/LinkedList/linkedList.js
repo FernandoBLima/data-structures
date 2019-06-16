@@ -24,7 +24,7 @@ class LinkedList {
      * Action to add element to linkedList
      * @param {number} value
      */
-    addFromHead(value){
+    insertAtHead(value){
         if(this.head){
             var newNode = new Node(value, this.head, null );
             this.head.prev = newNode;
@@ -41,7 +41,7 @@ class LinkedList {
      * Action to add the value after the current tail
      * @param {number} value
      */
-    addFromTail(value){
+    addAtTail(value){
         var newNode = new Node(value, null, this.tail);
         if(this.tail){
             this.tail.next = newNode;
@@ -55,7 +55,7 @@ class LinkedList {
     /**
      * Action to remove the head element
      */
-    removeFromHead(){
+    removeAtHead(){
         if(this.head){
             var newHead = this.head.next;
             this.head.prev = null;
@@ -72,7 +72,7 @@ class LinkedList {
     /**
      * Action to remove the tail element
      */
-    removeFromTail(){
+    removeAtTail(){
         if (this.tail){
             this.tail = this.tail.prev;
             this.tail.next = null;
@@ -134,7 +134,7 @@ class LinkedList {
      * Action to get element by index
      * @param {number} value
     */
-    getFromIndex(index){
+    getAtIndex(index){
         if(this.head){
             var currentIndex = 0;
             var node = this.head
@@ -191,7 +191,7 @@ class LinkedList {
      * @param {number} value
      * @param {number} index
      */
-    addFromIndex(value, index){
+    addAtIndex(value, index){
         if(this.head){
             var currentIndex = 1;
 

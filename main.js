@@ -4,24 +4,23 @@ const LinkedList = require('./DataStructures/LinkedList/linkedList');
 
 
 
-
 // **********************************
 // *           LinkedList           *
 // **********************************
 // var linkedList = new LinkedList();
-// linkedList.addFromHead(3) // 3
-// linkedList.addFromHead(6) // 6 - 3
-// linkedList.addFromHead(4) // 4 - 6 - 3
-// linkedList.addFromHead(44) // 44 - 4 - 6 - 3
-// linkedList.addFromHead(24) // 24 - 44 - 4 - 6 - 3
-// linkedList.addFromHead(84) // 84 - 24 - 44 - 4 - 6 - 3
-// linkedList.removeFromHead() // 24 - 44 - 4 - 6 - 3
+// linkedList.addAtHead(3) // 3
+// linkedList.addAtHead(6) // 6 - 3
+// linkedList.addAtHead(4) // 4 - 6 - 3
+// linkedList.addAtHead(44) // 44 - 4 - 6 - 3
+// linkedList.addAtHead(24) // 24 - 44 - 4 - 6 - 3
+// linkedList.addAtHead(84) // 84 - 24 - 44 - 4 - 6 - 3
+// linkedList.removeAtHead() // 24 - 44 - 4 - 6 - 3
 // linkedList.search(4) // Number exist!
 // linkedList.search(45) // Number does not exist!
-// linkedList.addFromHead(1) // 1 - 24 - 44 - 4 - 6 - 3
-// linkedList.addFromTail(5) // 1 - 24 - 4 - 44 - 4 - 6 - 3 - 5
-// linkedList.removeFromTail() // 1 - 24 - 44 - 4 - 6 - 3
-// linkedList.getFromIndex(1); // 24 Node
+// linkedList.addAtHead(1) // 1 - 24 - 44 - 4 - 6 - 3
+// linkedList.addAtTail(5) // 1 - 24 - 4 - 44 - 4 - 6 - 3 - 5
+// linkedList.removeAtTail() // 1 - 24 - 44 - 4 - 6 - 3
+// linkedList.getAtIndex(1); // 24 Node
 // linkedList.removeValue(24) // 1 - 44 - 4 - 6 - 3
 // console.log(linkedList.isEmpty()) // false
 // console.log(linkedList.getLenght()) // 5
@@ -30,9 +29,6 @@ const LinkedList = require('./DataStructures/LinkedList/linkedList');
 // console.log(linkedList.tail); // 1
 // console.log(linkedList); 
 
-
-// console.time('removeFromHead 3');
-// console.timeEnd('removeFromHead 3');
 
 // ##################################
 // *           Queue                *

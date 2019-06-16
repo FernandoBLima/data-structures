@@ -10,7 +10,7 @@ class Stack extends LinkedList{
       
       
     /**
-     * Action to add elemnent in the tail (a.k.a. addFromTail)
+     * Action to add elemnent in the tail (a.k.a. addFAtTail)
      * @param {number} value
      */
     push(value){
@@ -27,7 +27,7 @@ class Stack extends LinkedList{
 
 
     /**
-     * Action to remove element form the Head (a.k.a. removeFromHead)
+     * Action to remove element form the Head (a.k.a. removeAtHead)
      */
     pop(){
         if(this.head){
