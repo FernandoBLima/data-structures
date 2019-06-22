@@ -103,7 +103,7 @@ class Heap {
             var position;
             var currentIndex = this.list.indexOf(currentNode)
 
-            if(this.hasRightChild(currentIndex) && this.shouldSwap(this.getRightChild(currentIndex), this.getLeftChild(currentIndex))){
+            if(this.hasRightChild(currentIndex) && this.shouldSwap(currentNode, this.getLeftChild(currentIndex))){
                 position = this.getRightChild(currentIndex);
             } else {
                 position = this.getLeftChild(currentIndex);
