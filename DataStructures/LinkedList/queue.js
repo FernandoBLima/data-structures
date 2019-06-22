@@ -10,7 +10,7 @@ class Queue extends LinkedList{
       
 
     /**
-     * Action to add some value at the end of the list (a.k.a. addFromTail)
+     * Action to add some value at the end of the list (a.k.a. addAtTail)
      * @param {number} value
      */
     enqueue(value){
@@ -28,14 +28,14 @@ class Queue extends LinkedList{
 
 
     /**
-     * Action to remove the last element in the list (a.k.a. removeFromHead)
+     * Action to remove the last element in the list (a.k.a. removeAtHead)
      */
     dequeue(){
         if (this.tail){
             this.tail = this.tail.prev;
             this.tail.next = null;
         }else{
-            throw new Error('Head not existe yet!');
+            throw new Error('Head do not exist!');
         }
     }
 
