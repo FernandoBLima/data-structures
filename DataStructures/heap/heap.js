@@ -3,14 +3,12 @@
     * merge (union): joining two heaps to form a valid new heap containing all the elements of both, preserving the original heaps.
 */
 
-
 class Heap {
 
     constructor() {
         this.list = []
         this.size = 0;
     }
-
 
     /**
     * Action to insert a value in the Heap
@@ -42,15 +40,15 @@ class Heap {
         const tmp = this.list[parentIndex];
         this.list[parentIndex] = this.list[childrenIndex];
         this.list[childrenIndex] = tmp;
-        childrenIndex = parentIndex;
-        parentIndex = this.getParentIndex(parentIndex);
-
-        this.list = this.list.filter(function (el) { 
-            return el != null; 
-        }); 
+        // childrenIndex = parentIndex;
+        // parentIndex = this.getParentIndex(parentIndex);
     }   
 
 
+    /**
+    * Action to build heap from array
+    * @param {[]} value
+    */
     build_heap (value){
         for(let i = 0; i <= value.length - 1; i++ ){
             this.insert(value[i]) ;
@@ -58,31 +56,33 @@ class Heap {
     }
 
     /**
-    * Action to remove the first element in the heap
-    * @param {number} value
-   */
+        * Action to remove the first element in the heap
+        * @param {number} value
+    */
     removeFromTop(){
         if(this.isEmpty())
             throw new Error('The Heap is Empty');
-
         if(this.getSize() == 1){
             this.list.pop();
         } else {
-            this.swapElements(this.list.length - 1, 0);
-            this.list[this.list.length - 1] = null;
-            this.size--;
-            this.list = this.list.filter(function (el) {
-                return el != null;
-              });
-              
+            this.swapToRemove();
             this.heapify(0);
         }
     }
 
+    swapToRemove(){
+        this.swapElements(this.list.length - 1, 0);
+        this.list[this.list.length - 1] = null;
+        this.size--;
+        this.list = this.list.filter(function (el) {
+            return el != null;
+        });
+    }
+
     /**
-    * Action to remove a specific value
-    * @param {number} value
-   */
+        * Action to remove a specific value
+        * @param {number} value
+    */
     remove(value){
         var childrenIndex = this.list.indexOf(value);
         if(childrenIndex != -1){
@@ -92,39 +92,28 @@ class Heap {
                     childrenIndex = this.getParentIndex(childrenIndex);
                 } while(this.hasParent(childrenIndex));
             }
-
-            this.swapElements(this.list.length - 1, 0);
-            this.list[this.list.length - 1] = null;
-            this.size--;
-            this.list = this.list.filter(function (el) {
-                return el != null;
-            });
-            
+            this.swapToRemove();
             this.heapify(0);
         }else{
             throw new Error('Value not found!');
         }
     }
 
+    /**
+        * Action to move a node down in the tree, used to restore heap condition after deletion or replacement.
+        * @param {number} value
+    */
     heapify(index){
-
-        let   left = 2*index+1,
-        right = 2*index+2,
+        let left = this.getLeftChildrenIndex(index),
+        right = this.getRightChildrenIndex(index),
         largest = index;
 
-        // if left child is greater than parent
-        // if(this.list[left]>this.list[largest] ){
         if(this.shouldSwap(left, largest) ){
             largest = left;
-
         }
-        // if right child is greater than parent
-        // if(this.list[right]>this.list[largest]) {
         if(this.shouldSwap(right, largest) ){
             largest = right
         }
-
-        // swap
         if(largest !== index){
             [this.list[largest],this.list[index]] = [this.list[index],this.list[largest]]
             this.heapify(largest)
@@ -156,7 +145,6 @@ class Heap {
     //     }
 
     // }
-
 
 
     /**
