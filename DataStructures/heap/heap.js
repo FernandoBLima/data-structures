@@ -3,14 +3,12 @@
     * merge (union): joining two heaps to form a valid new heap containing all the elements of both, preserving the original heaps.
 */
 
-
 class Heap {
 
     constructor() {
         this.list = []
         this.size = 0;
     }
-
 
     /**
     * Action to insert a value in the Heap
@@ -42,15 +40,15 @@ class Heap {
         const tmp = this.list[parentIndex];
         this.list[parentIndex] = this.list[childrenIndex];
         this.list[childrenIndex] = tmp;
-        childrenIndex = parentIndex;
-        parentIndex = this.getParentIndex(parentIndex);
-
-        this.list = this.list.filter(function (el) { 
-            return el != null; 
-        }); 
+        // childrenIndex = parentIndex;
+        // parentIndex = this.getParentIndex(parentIndex);
     }   
 
 
+    /**
+    * Action to build heap from array
+    * @param {[]} value
+    */
     build_heap (value){
         for(let i = 0; i <= value.length - 1; i++ ){
             this.insert(value[i]) ;
@@ -58,24 +56,33 @@ class Heap {
     }
 
     /**
-    * Action to remove the first element in the heap
-    * @param {number} value
-   */
+        * Action to remove the first element in the heap
+        * @param {number} value
+    */
     removeFromTop(){
         if(this.isEmpty())
             throw new Error('The Heap is Empty');
-
         if(this.getSize() == 1){
             this.list.pop();
         } else {
-            this.heapify();
+            this.swapToRemove();
+            this.heapify(0);
         }
     }
 
+    swapToRemove(){
+        this.swapElements(this.list.length - 1, 0);
+        this.list[this.list.length - 1] = null;
+        this.size--;
+        this.list = this.list.filter(function (el) {
+            return el != null;
+        });
+    }
+
     /**
-    * Action to remove a specific value
-    * @param {number} value
-   */
+        * Action to remove a specific value
+        * @param {number} value
+    */
     remove(value){
         var childrenIndex = this.list.indexOf(value);
         if(childrenIndex != -1){
@@ -85,39 +92,59 @@ class Heap {
                     childrenIndex = this.getParentIndex(childrenIndex);
                 } while(this.hasParent(childrenIndex));
             }
-            this.heapify();
+            this.swapToRemove();
+            this.heapify(0);
         }else{
             throw new Error('Value not found!');
         }
     }
 
+    /**
+        * Action to move a node down in the tree, used to restore heap condition after deletion or replacement.
+        * @param {number} value
+    */
+    heapify(index){
+        let left = this.getLeftChildrenIndex(index),
+        right = this.getRightChildrenIndex(index),
+        largest = index;
 
-
-    heapify(){
-        this.swapElements(this.list.length - 1, 0);
-        this.list[this.list.length - 1] = null;
-        this.size--;
-        var currentNode = this.peek();
-
-        while(this.hasLeftChild(this.list.indexOf(currentNode))){
-            var position;
-            var currentIndex = this.list.indexOf(currentNode)
-
-            if(this.hasRightChild(currentIndex) && this.shouldSwap(this.getRightChild(currentIndex), this.getLeftChild(currentIndex))){
-                position = this.getRightChild(currentIndex);
-            } else {
-                position = this.getLeftChild(currentIndex);
-            }
-
-            if(this.shouldSwap( this.list.indexOf(position), this.list.indexOf(currentNode))){
-                this.swapElements(this.list.indexOf(currentNode), this.list.indexOf(position));
-            } else {
-                break;
-            }
+        if(this.shouldSwap(left, largest) ){
+            largest = left;
         }
-
+        if(this.shouldSwap(right, largest) ){
+            largest = right
+        }
+        if(largest !== index){
+            [this.list[largest],this.list[index]] = [this.list[index],this.list[largest]]
+            this.heapify(largest)
+        }
     }
 
+
+    // heapify(){
+    //     this.swapElements(this.list.length - 1, 0);
+    //     this.list[this.list.length - 1] = null;
+    //     this.size--;
+    //     var currentNode = this.peek();
+
+    //     while(this.hasLeftChild(this.list.indexOf(currentNode))){
+    //         var position;
+    //         var currentIndex = this.list.indexOf(currentNode)
+
+    //         if(this.hasRightChild(currentIndex) && this.shouldSwap(this.getLeftChild(currentIndex), this.getRightChild(currentIndex))){
+    //             position = this.getLeftChild(currentIndex);
+    //         } else {
+    //             position = this.getRightChild(currentIndex);
+    //         }
+
+    //         if(this.shouldSwap( this.list.indexOf(position), this.list.indexOf(currentNode))){
+    //             this.swapElements(this.list.indexOf(currentNode), this.list.indexOf(position));
+    //         } else {
+    //             break;
+    //         }
+    //     }
+
+    // }
 
 
     /**
