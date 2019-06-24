@@ -56,21 +56,18 @@ const HeapMax = require('./DataStructures/heap/heapMax');
 
 
 
-
 // ##################################
 // *           HeapMin              *
 // ##################################
 var heapMin = new HeapMin();
-heapMin.build_heap([3,10,11,5,15,17, 13, 12, 11, 8, 21]); // 3, 5, 11, 10, 8, 17, 13, 12, 11, 15, 21
+heapMin.build_heap([3,10,11,5,15,17, 13, 12, 14, 8, 21]); // 3, 5, 11, 10, 8, 17, 13, 12, 11, 15, 21
 console.log(heapMin.getSize())
+console.log(heapMin);
+heapMin.removeFromTop();
 console.log(heapMin);
 heapMin.remove(10);
 console.log(heapMin);
 
-// heapMin.remove();
-// heapMin.insert(3);
-// heapMin.build_heap([10,9,8,7,6,5,4,3,2,1]);
-// console.log(heapMin);
 
 
 // ##################################
@@ -78,9 +75,10 @@ console.log(heapMin);
 // ##################################
 // var heapMax = new HeapMax();
 // heapMax.build_heap([3,10,11,5,15,17]);
-// // heapMax.insert(3);
+// heapMax.insert(4);
+// heapMax.removeFromTop();
 // console.log(heapMax);
-// heapMax.build_heap([1,2,3,4,5,6,7,8,9]);
+// heapMax.remove(11)
 // console.log(heapMax);
 
 

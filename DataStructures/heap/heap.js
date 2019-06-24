@@ -68,7 +68,14 @@ class Heap {
         if(this.getSize() == 1){
             this.list.pop();
         } else {
-            this.heapify();
+            this.swapElements(this.list.length - 1, 0);
+            this.list[this.list.length - 1] = null;
+            this.size--;
+            this.list = this.list.filter(function (el) {
+                return el != null;
+              });
+              
+            this.heapify(0);
         }
     }
 
@@ -85,38 +92,70 @@ class Heap {
                     childrenIndex = this.getParentIndex(childrenIndex);
                 } while(this.hasParent(childrenIndex));
             }
-            this.heapify();
+
+            this.swapElements(this.list.length - 1, 0);
+            this.list[this.list.length - 1] = null;
+            this.size--;
+            this.list = this.list.filter(function (el) {
+                return el != null;
+            });
+            
+            this.heapify(0);
         }else{
             throw new Error('Value not found!');
         }
     }
 
+    heapify(index){
 
+        let   left = 2*index+1,
+        right = 2*index+2,
+        largest = index;
 
-    heapify(){
-        this.swapElements(this.list.length - 1, 0);
-        this.list[this.list.length - 1] = null;
-        this.size--;
-        var currentNode = this.peek();
+        // if left child is greater than parent
+        // if(this.list[left]>this.list[largest] ){
+        if(this.shouldSwap(left, largest) ){
+            largest = left;
 
-        while(this.hasLeftChild(this.list.indexOf(currentNode))){
-            var position;
-            var currentIndex = this.list.indexOf(currentNode)
-
-            if(this.hasRightChild(currentIndex) && this.shouldSwap(currentNode, this.getLeftChild(currentIndex))){
-                position = this.getRightChild(currentIndex);
-            } else {
-                position = this.getLeftChild(currentIndex);
-            }
-
-            if(this.shouldSwap( this.list.indexOf(position), this.list.indexOf(currentNode))){
-                this.swapElements(this.list.indexOf(currentNode), this.list.indexOf(position));
-            } else {
-                break;
-            }
+        }
+        // if right child is greater than parent
+        // if(this.list[right]>this.list[largest]) {
+        if(this.shouldSwap(right, largest) ){
+            largest = right
         }
 
+        // swap
+        if(largest !== index){
+            [this.list[largest],this.list[index]] = [this.list[index],this.list[largest]]
+            this.heapify(largest)
+        }
     }
+
+
+    // heapify(){
+    //     this.swapElements(this.list.length - 1, 0);
+    //     this.list[this.list.length - 1] = null;
+    //     this.size--;
+    //     var currentNode = this.peek();
+
+    //     while(this.hasLeftChild(this.list.indexOf(currentNode))){
+    //         var position;
+    //         var currentIndex = this.list.indexOf(currentNode)
+
+    //         if(this.hasRightChild(currentIndex) && this.shouldSwap(this.getLeftChild(currentIndex), this.getRightChild(currentIndex))){
+    //             position = this.getLeftChild(currentIndex);
+    //         } else {
+    //             position = this.getRightChild(currentIndex);
+    //         }
+
+    //         if(this.shouldSwap( this.list.indexOf(position), this.list.indexOf(currentNode))){
+    //             this.swapElements(this.list.indexOf(currentNode), this.list.indexOf(position));
+    //         } else {
+    //             break;
+    //         }
+    //     }
+
+    // }
 
 
 
