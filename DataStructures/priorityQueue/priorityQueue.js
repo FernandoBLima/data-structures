@@ -12,6 +12,12 @@ class PriorityQueue {
         this.size = 0;
     } 
   
+  /**
+     * Add item to the priority queue.
+     * @param {number} value - item we're going to add to the queue.
+     * @param {number} priority - item priority.
+     * @return {PriorityQueue}
+   */
     enqueue(value, priority){
         var newNode = new Node(value, priority);
         var flag = false;
@@ -29,11 +35,18 @@ class PriorityQueue {
         }
     }
 
-
+    /**
+     * Action to remove first element of queue
+     * @return {Node}
+   */
     dequeue(){ 
         return this.list.shift(); 
     } 
 
+    /**
+     * Action to find first element in the queue
+     * @return {Node}
+    */
     getFirstElement() { 
         if (this.isEmpty()) 
             return "No elements in Queue"; 
@@ -41,8 +54,10 @@ class PriorityQueue {
         return this.list[0]; 
     } 
 
-
-    // return true if the queue is empty. 
+    /**
+     * Action to verify  if the queue is empty. 
+     * @return {Boolean}
+    */
     isEmpty() { 
         return this.list.length == 0; 
     } 

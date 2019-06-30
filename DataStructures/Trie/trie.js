@@ -67,13 +67,14 @@ class Trie {
 
 
       remove(key) {
-        // if(this.search(key)){
+        if(this.search(key)){
             this._removeNode(this.root ,key, key, 0);
-        // }
+        }else{
+            return false;
+        }
       };
 
       _removeNode(node, keySlice ,key, index) {
-        console.log('----------------------',key)
        if(index == key.length){
             if(node.isEndOfWord && !this.hasChild(node.children)){
                 node.remove = true;
@@ -94,29 +95,6 @@ class Trie {
         }
         return true
 
-        // If last character of key is being processed 
-        // if(depth == key.length){
-        //     if(node.isEndOfWord && !this.hasChild(node.children)){
-        //         node.remove = true;
-        //     }
-        //     return node;
-        // }
-
-        // var element = key[depth];
-        // var current =  this._removeNode(node.children[element], key, depth + 1)
-        // console.log('current', current)
-        // if(Object.keys(current.children).length === 0 && current.isEndOfWord){
-        //     // console.log('AQUI', node.children[element])
-        //     // delete node.children[element];
-        //     // node.children[element] = null;
-        // }else{
-        //     // console.log('EEEEEEEEEER',current)
-        //     if(Object.keys(current.children).length === 0 && !current.isEndOfWord){
-        //         console.log('AQUUUUU 2')
-        //         // delete node.children[element];
-        //     }
-        // }
-        // return node;
     }
 
 
@@ -130,12 +108,48 @@ class Trie {
         return count > 0 ? true : false;
     }
 
+    suggestionWord(key) {
+        var search = this.searchWord(key)
+        var suggestions = [];
+        return this._suggestionWord(search,key , key, key, suggestions);
+      };
 
 
+    searchWord(key){
+        var currentValue = this.root;
+
+        for (let index = 0; index < key.length; index++) {
+            const element = key[index];
+            if (currentValue.children[element]) {
+                currentValue = currentValue.children[element];
+            } else{
+                return false;
+            }
+          }
+
+          return currentValue
+    }
+
+    _suggestionWord(node, key, word, lastWord, arra){
+
+        var letters = Object.keys(node.children); 
+
+        for (let index = 0; index < letters.length; index++) {
+            const element = letters[index];
+            if(node.children[element].isEndOfWord){
+                arra.push(lastWord + node.children[element].character)
+                this._suggestionWord(node.children[element], key, word, '', arra)
+            }else{
+                var rest = lastWord + node.children[element].character;
+                this._suggestionWord(node.children[element], key, word, rest, arra)
+            }
+
+        }
+        return arra
+
+    }
 
 
-    // SuggestionWord
-    // GetLastNode
 }
 
 module.exports = Trie;

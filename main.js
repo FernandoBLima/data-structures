@@ -2,16 +2,21 @@ const Queue = require('./DataStructures/LinkedList/queue');
 const Stack = require('./DataStructures/LinkedList/stack');
 const LinkedList = require('./DataStructures/LinkedList/linkedList');
 
-const PriorityQueue = require('./DataStructures/priorityQueue/priorityQueue');
-const PriorityHeap = require('./DataStructures/priorityQueue/priorityHeap')
+const PriorityQueue = require('./DataStructures/PriorityQueue/priorityQueue');
+const PriorityHeap = require('./DataStructures/PriorityQueue/priorityHeap');
 
-const HeapMin = require('./DataStructures/heap/heapMin');
-const HeapMax = require('./DataStructures/heap/heapMax');
+const HeapMin = require('./DataStructures/Heap/heapMin');
+const HeapMax = require('./DataStructures/Heap/heapMax');
 
-const Map = require('./DataStructures/hashMap/map')
-const HashTable = require('./DataStructures/hashMap/hashTable')
+const Map = require('./DataStructures/hashMap/map');
+const HashTable = require('./DataStructures/hashMap/hashTable');
 
-const Trie = require('./DataStructures/Trie/trie')
+const Trie = require('./DataStructures/Trie/trie');
+
+const BinaryTree = require('./DataStructures/Tree/binaryTree');
+const AvlTree = require('./DataStructures/Tree/avlTrie');
+const NodeTree = require('./DataStructures/Tree/nodeTree');
+
 
 // **********************************
 // *           LinkedList           *
@@ -105,6 +110,8 @@ const Trie = require('./DataStructures/Trie/trie')
 // priorityQueue.enqueue('value 7', 7);
 // priorityQueue.enqueue('value 8', 8);
 // priorityQueue.enqueue('value 9', 9);
+// priorityQueue.getFirstElement(); // { element: 'value 9', priority: 9 }
+// priorityQueue.dequeue(); // removing { element: 'value 9', priority: 9 }
 // console.log(priorityQueue);
 
 
@@ -122,9 +129,10 @@ const Trie = require('./DataStructures/Trie/trie')
 // priorityHeap.insert('value 7', 7);
 // priorityHeap.insert('value 8', 8);
 // priorityHeap.insert('value 9', 9);
-// console.log('priorityHeap', priorityHeap)
 // priorityHeap.insert('value 2', 3);
 // console.log('priorityHeap', priorityHeap)
+
+
 
 // ##################################
 // *              Map               *
@@ -149,28 +157,20 @@ const Trie = require('./DataStructures/Trie/trie')
 // ##################################
 // *              Trie              *
 // ##################################
-var trie = new Trie();
-// map.add('value 1', 1);
+// var trie = new Trie();
 // trie.insert('abc');
 // trie.insert('abb');
-trie.insertRecursive('acd');
-trie.insertRecursive('ace');
-trie.insertRecursive('acf');
-trie.insertRecursive('acfg');
+// trie.insertRecursive('acd');
+// trie.insertRecursive('ace');
+// trie.insertRecursive('acfg');
 
-// trie.insertRecursive('ab');
-console.log(trie.remove('ace'))
-
-
-// trie.insert('abbd');
-// trie.remove('abbd');
-
-// console.log(map.get(2));
+// console.log(trie.remove('aere'))
 
 // console.log(trie.search('abb'));
 // console.log(trie.search('abb'));
+// console.log(trie.suggestionWord('a'));
 
-console.log(trie.root.children['a'].children['c']);
+// console.log(trie.root.children['a'].children['c']);
 // console.log(trie.root.children['a'].children['b']);
 
 // console.log(trie.removeWord('ab'));
@@ -179,10 +179,44 @@ console.log(trie.root.children['a'].children['c']);
 
 
 
+// ##################################
+// *            BinaryTree          *
+// ##################################
+// var binaryTree = new BinaryTree();
+// binaryTree.insert(23)
+// binaryTree.insert(55)
+// binaryTree.insert(1)
+// binaryTree.insert(45)
+// binaryTree.insert(14)
+
+// console.log(binaryTree.inOrder());
+// console.log(binaryTree.posOrder());
+// console.log(binaryTree.preOrder());
+
+// console.log(binaryTree.findMaximum());
+// console.log(binaryTree.findMinimum());
+
+// console.log(binaryTree.root);
 
 
+// ##################################
+// *            AVL TREE            *
+// ##################################
 
-// C
-// console.log(trie.root.children);
-
+var avlTree = new AvlTree();
+avlTree.insert(1);
+avlTree.insert(3);
+avlTree.insert(2);
+avlTree.delete(2);
+// console.log(avlTree.findMaximum());
+// console.log(avlTree.findMinimum());
+// console.log(avlTree.search(2));
+// console.log(avlTree.search(45));
+// console.log(avlTree.findParent(2));
+// avlTree.root = new NodeTree(10,0);;
+// avlTree.root.left = new NodeTree(8,1);
+// avlTree.root.left.left = new NodeTree(5,2);
+// avlTree.insert(8);
+// console.log(avlTree.findNode(4));
+console.log(avlTree);
 

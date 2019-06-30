@@ -1,4 +1,4 @@
-const HeapMin = require('../heap/heapMin');
+const HeapMin = require('../Heap/heapMin');
 
 
 class Node {
@@ -17,10 +17,10 @@ class PriorityHeap extends HeapMin{
     
 
   /**
-   * Add item to the priority queue.
-   * @param {*} value - item we're going to add to the queue.
-   * @param {number} [priority] - items priority.
-   * @return {PriorityQueue}
+     * Add item to the priority queue.
+     * @param {*} value - item we're going to add to the queue.
+     * @param {number} [priority] - items priority.
+     * @return {PriorityQueue}
    */
   insert(value, priority = 0) {
     var newNode = new Node(value, priority);
@@ -28,7 +28,11 @@ class PriorityHeap extends HeapMin{
     return this;
   }
 
-
+    /**
+        * Action element according of priority
+        * @param {number} value
+        * @param {number} index
+    */
     shouldSwap(childIndex, parentIndex) {
         return this.list[childIndex].priority > this.list[parentIndex].priority
     }
