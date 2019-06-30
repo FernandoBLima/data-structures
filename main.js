@@ -2,8 +2,20 @@ const Queue = require('./DataStructures/LinkedList/queue');
 const Stack = require('./DataStructures/LinkedList/stack');
 const LinkedList = require('./DataStructures/LinkedList/linkedList');
 
-const HeapMin = require('./DataStructures/heap/heapMin');
-const HeapMax = require('./DataStructures/heap/heapMax');
+const PriorityQueue = require('./DataStructures/PriorityQueue/priorityQueue');
+const PriorityHeap = require('./DataStructures/PriorityQueue/priorityHeap');
+
+const HeapMin = require('./DataStructures/Heap/heapMin');
+const HeapMax = require('./DataStructures/Heap/heapMax');
+
+const Map = require('./DataStructures/hashMap/map');
+const HashTable = require('./DataStructures/hashMap/hashTable');
+
+const Trie = require('./DataStructures/Trie/trie');
+
+const BinaryTree = require('./DataStructures/Tree/binaryTree');
+const AvlTree = require('./DataStructures/Tree/avlTrie');
+const NodeTree = require('./DataStructures/Tree/nodeTree');
 
 
 // **********************************
@@ -76,5 +88,130 @@ const HeapMax = require('./DataStructures/heap/heapMax');
 // heapMax.removeFromTop(); // 15, 11, 10, 3, 5, 4
 // heapMax.remove(11) // 15, 5, 10, 3, 4
 // console.log(heapMax);
+// heapMax.build_heap([1,2,3,4,5,6,7,8,9]);
+// console.log(heapMax);
 
+
+// ##################################
+// *          Priority Queue        *
+// ##################################
+// var priorityQueue = new PriorityQueue();
+// priorityQueue.enqueue('value 1', 1);
+// priorityQueue.enqueue('value 2', 2);
+// priorityQueue.enqueue('value 3', 3);
+// priorityQueue.enqueue('value 4', 4);
+// priorityQueue.enqueue('value 5', 5);
+// priorityQueue.enqueue('value 6', 6);
+// priorityQueue.enqueue('value 7', 7);
+// priorityQueue.enqueue('value 8', 8);
+// priorityQueue.enqueue('value 9', 9);
+// priorityQueue.getFirstElement(); // { element: 'value 9', priority: 9 }
+// priorityQueue.dequeue(); // removing { element: 'value 9', priority: 9 }
+// console.log(priorityQueue);
+
+
+
+// ##################################
+// *          Priority Heap         *
+// ##################################
+// var priorityHeap = new PriorityHeap();
+// priorityHeap.insert('value 1', 1);
+// priorityHeap.insert('value 2', 2);
+// priorityHeap.insert('value 3', 3);
+// priorityHeap.insert('value 4', 4);
+// priorityHeap.insert('value 5', 5);
+// priorityHeap.insert('value 6', 6);
+// priorityHeap.insert('value 7', 7);
+// priorityHeap.insert('value 8', 8);
+// priorityHeap.insert('value 9', 9);
+// priorityHeap.insert('value 2', 3);
+// console.log('priorityHeap', priorityHeap)
+
+
+
+// ##################################
+// *              Map               *
+// ##################################
+// var map = new Map();
+// map.add('value 1', 1);
+// map.add('value 2', 2);
+// console.log(map.get(2));
+// console.log(map);
+
+
+// ##################################
+// *            HashTable           *
+// ##################################
+// var hashTable = new HashTable();
+// hashTable.add('valsdfgsgue ew', 'key');
+// hashTable.add('value 2', 'key2');
+// console.log(hashTable.get('key2'));
+// console.log(hashTable);
+
+
+// ##################################
+// *              Trie              *
+// ##################################
+// var trie = new Trie();
+// trie.insert('abc');
+// trie.insert('abb');
+// trie.insertRecursive('acd');
+// trie.insertRecursive('ace');
+// trie.insertRecursive('acfg');
+
+// console.log(trie.remove('aere'))
+
+// console.log(trie.search('abb'));
+// console.log(trie.search('abb'));
+// console.log(trie.suggestionWord('a'));
+
+// console.log(trie.root.children['a'].children['c']);
+// console.log(trie.root.children['a'].children['b']);
+
+// console.log(trie.removeWord('ab'));
+// trie.canDelete('abb');
+
+
+
+
+// ##################################
+// *            BinaryTree          *
+// ##################################
+// var binaryTree = new BinaryTree();
+// binaryTree.insert(23)
+// binaryTree.insert(55)
+// binaryTree.insert(1)
+// binaryTree.insert(45)
+// binaryTree.insert(14)
+
+// console.log(binaryTree.inOrder());
+// console.log(binaryTree.posOrder());
+// console.log(binaryTree.preOrder());
+
+// console.log(binaryTree.findMaximum());
+// console.log(binaryTree.findMinimum());
+
+// console.log(binaryTree.root);
+
+
+// ##################################
+// *            AVL TREE            *
+// ##################################
+
+var avlTree = new AvlTree();
+avlTree.insert(1);
+avlTree.insert(3);
+avlTree.insert(2);
+avlTree.delete(2);
+// console.log(avlTree.findMaximum());
+// console.log(avlTree.findMinimum());
+// console.log(avlTree.search(2));
+// console.log(avlTree.search(45));
+// console.log(avlTree.findParent(2));
+// avlTree.root = new NodeTree(10,0);;
+// avlTree.root.left = new NodeTree(8,1);
+// avlTree.root.left.left = new NodeTree(5,2);
+// avlTree.insert(8);
+// console.log(avlTree.findNode(4));
+console.log(avlTree);
 
