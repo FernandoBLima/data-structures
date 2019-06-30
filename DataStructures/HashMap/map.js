@@ -13,7 +13,7 @@ class Map {
     }
 
     delete(key){
-        if (this.has(key)){
+        if (this.has(key)){ 
           delete list[key];
           return true;
         }
