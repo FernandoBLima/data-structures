@@ -15,6 +15,8 @@ const Trie = require('./DataStructures/Trie/trie');
 
 const BinaryTree = require('./DataStructures/Tree/binaryTree');
 const AvlTree = require('./DataStructures/Tree/avlTrie');
+const AvlTree2 = require('./DataStructures/Tree/avlTrie2');
+
 const NodeTree = require('./DataStructures/Tree/nodeTree');
 
 
@@ -159,7 +161,7 @@ const NodeTree = require('./DataStructures/Tree/nodeTree');
 // trie.insertRecursive('ace');
 // trie.insertRecursive('acfg');
 
-// console.log(trie.remove('aere'))
+// console.log(trie.remove('acd'))
 
 // console.log(trie.search('abb'));
 // console.log(trie.search('abb'));
@@ -167,9 +169,6 @@ const NodeTree = require('./DataStructures/Tree/nodeTree');
 
 // console.log(trie.root.children['a'].children['c']);
 // console.log(trie.root.children['a'].children['b']);
-
-// console.log(trie.removeWord('ab'));
-// trie.canDelete('abb');
 
 
 
@@ -180,7 +179,7 @@ const NodeTree = require('./DataStructures/Tree/nodeTree');
 // var binaryTree = new BinaryTree();
 // binaryTree.insert(23)
 // binaryTree.insert(55)
-// binaryTree.insert(1)
+// binaryTree.insert(21)
 // binaryTree.insert(45)
 // binaryTree.insert(14)
 
@@ -198,20 +197,37 @@ const NodeTree = require('./DataStructures/Tree/nodeTree');
 // *            AVL TREE            *
 // ##################################
 
-var avlTree = new AvlTree();
-avlTree.insert(1);
-avlTree.insert(3);
-avlTree.insert(2);
-avlTree.delete(2);
-// console.log(avlTree.findMaximum());
-// console.log(avlTree.findMinimum());
-// console.log(avlTree.search(2));
-// console.log(avlTree.search(45));
-// console.log(avlTree.findParent(2));
-// avlTree.root = new NodeTree(10,0);;
-// avlTree.root.left = new NodeTree(8,1);
-// avlTree.root.left.left = new NodeTree(5,2);
-// avlTree.insert(8);
-// console.log(avlTree.findNode(4));
-console.log(avlTree);
+var avlTree = new AvlTree2();
+avlTree.insert(20);
+avlTree.insert(10);
+avlTree.insert(30);
+avlTree.insert(5);
+avlTree.insert(15);
+console.log(avlTree.getLeaf());
+
+console.log(avlTree.remove(10));
+
+// avlTree.insert(5);
+// avlTree.insert(4);
+// avlTree.insert(3);
+// avlTree.insert(2);
+// avlTree.insert(1);
+
+// avlTree.insert(20);
+// avlTree.insert(30);
+// avlTree.insert(10);
+// avlTree.insert(15);
+// avlTree.insert(5);
+// avlTree.insert(25);
+// avlTree.insert(35);
+
+
+// console.log(avlTree.inOrder());
+// console.log(avlTree.posOrder());
+// console.log(avlTree.preOrder());
+
+// avlTree.delete(30);
+
+console.log(avlTree.root);
+// console.log(avlTree.root.right);
 

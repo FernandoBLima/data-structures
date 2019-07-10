@@ -51,6 +51,10 @@ class AvlTree extends BinaryTrie {
                 this.rotateRightLeft(node);
             }
         }
+
+        console.log('currentNodeeeeeee',node)
+
+
     }
 
 
@@ -79,18 +83,37 @@ class AvlTree extends BinaryTrie {
     rotateRightRight(rootNode) {
         const rightNode = rootNode.right;
         rootNode.right = null;
-    
-        if (rootNode.parent) {
-          rootNode.parent.right = rightNode;
-        } else if (rootNode === this.root) {
+
+        // var parentNode = super.findParent(rootNode.key);
+        // console.log('parentNode', parentNode)
+
+        // if (parentNode) {
+        //   console.log('HEEEEE')
+        //   parentNode.right = rightNode;
+        //   parentNode.right.left = rootNode;
+        // } else 
+
+        if (rootNode === this.root) {
           this.root = rightNode;
+          let leftChild = this.root.left;
+          this.root.left = rootNode;
+          this.root.left.right = leftChild
+        }else{
+          var parentNode = super.findParent(rootNode.key);
+          rightNode.left = rootNode
+          parentNode.right = rightNode;
+
+          parentNode.right.left.height = this.updateHeigh(parentNode.right.left);
+          parentNode.left.height = this.updateHeigh(parentNode.left);
+          parentNode.height = this.updateHeigh(parentNode);
+
         }
     
-        if (rightNode.left) {
-          rootNode.right = rightNode.left;
-        }
+        // if (rightNode.left) {
+        //   rootNode.right = rightNode.left;
+        // }
     
-        rightNode.left = rootNode;
+        // rightNode.left = rootNode;
 
         rightNode.height = this.updateHeigh(rightNode);
         rootNode.height = this.updateHeigh(rootNode);
@@ -100,25 +123,28 @@ class AvlTree extends BinaryTrie {
 
 
     rotateLeftLeft(rootNode) {
+      const leftNode = rootNode.left;
+      rootNode.left = null;
 
-        const leftNode = rootNode.left;
-        rootNode.left =  null;
-    
-        if (rootNode.parent) {
-          rootNode.parent.left = leftNode;
-        } else if (rootNode === this.root) {
-          this.root = leftNode;
-        }
-    
-        if (leftNode.right) {
-          rootNode.left = leftNode.right;
-        }
+      if (rootNode === this.root) {
+        this.root = leftNode;
+        let leftChild = this.root.right;
+        this.root.right = rootNode;
+        this.root.right.left = leftChild
+      }else{
+        var parentNode = super.findParent(rootNode.key);
+        leftNode.right = rootNode
+        parentNode.left = leftNode;
+
+        parentNode.left.right.height = this.updateHeigh(parentNode.left.right);
+        parentNode.right.height = this.updateHeigh(parentNode.right);
+        parentNode.height = this.updateHeigh(parentNode);
+
+      }
 
         leftNode.height = this.updateHeigh(leftNode);
         rootNode.height = this.updateHeigh(rootNode);
         this.root.height = this.updateHeigh(this.root);
-
-        leftNode.right = rootNode;
       }
     
     

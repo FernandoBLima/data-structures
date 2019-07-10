@@ -4,6 +4,7 @@ class NodeTree {
         this.left = null;
         this.right = null;
         this.height = 1;
+        this.balance = 0;
     }
 }
 

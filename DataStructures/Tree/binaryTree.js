@@ -28,6 +28,7 @@ class BinaryTrie {
      * @param {Node} currentNode Current node of the tree.
      */
     _insertNode(currentNode, value){
+
         if(currentNode.key){
             if(value < currentNode.key){
                 if(!currentNode.left){
@@ -44,8 +45,27 @@ class BinaryTrie {
             }
             currentNode.height = 1 + this.maxHeight(this.getHeight(currentNode.left),
                                         this.getHeight(currentNode.right));
+            currentNode.balance = this.getBalanceNode(currentNode)
+
+
         }
     }
+
+    getBalanceNode(node){
+        var left = 0; 
+        var right = 0;
+        if(node.left === null && node.right === null){
+            return 0;
+        }
+        if(node.left !== null){
+            left = node.left.height;
+        }
+        if(node.right !== null){
+            right = node.right.height;
+        }
+        return left - (right);
+      }
+  
 
     /**
      * Recursive function to insert a new node in the tree.

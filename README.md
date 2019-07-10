@@ -18,3 +18,14 @@ This repository is a collection about data structures implemented in JavaScript 
 * Tree 
 	* Binary Tree
 	* Avl Tree
+
+
+## Algorithms
+
+* Bubble Sort
+* Bucket Sort
+* Combo Sort
+* Insert Sort
+* Quick Sort
+* Select Sort
+* Merge Sort (Doing)
