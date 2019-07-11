@@ -25,6 +25,7 @@ This repository is a collection about data structures implemented in JavaScript 
 * Bubble Sort
 * Bucket Sort
 * Combo Sort
+* Cocktail Sort
 * Insert Sort
 * Quick Sort
 * Select Sort

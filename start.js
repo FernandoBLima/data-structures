@@ -4,6 +4,7 @@ const InsertSort = require('./Algorithms/Sorting/insertSort')
 const QuickSort = require('./Algorithms/Sorting/quickSort')
 const ComboSort = require('./Algorithms/Sorting/comboSort')
 const BucketSort = require('./Algorithms/Sorting/bucketSort')
+const CocktailSort = require('./Algorithms/Sorting/cocktailSort')
 
 // const MergeSort = require('./Algorithms/Sorting/mergeSort')
 
@@ -57,6 +58,15 @@ const insertSort = new InsertSort();
 // insertSort.sort();
 // console.log(insertSort.data)
 
+// ##################################
+// *           Cocktail Sort           *
+// ##################################
+const cocktailSort = new CocktailSort();
+// cocktailSort.setData(10);
+cocktailSort.data = [5, 1, 4, 2, 8, 0, 2]
+console.log(cocktailSort.data)
+cocktailSort.sort();
+console.log(cocktailSort.data)
 
 // ##################################
 // *           Select Sort          *
