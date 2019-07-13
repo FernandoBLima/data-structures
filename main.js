@@ -19,6 +19,10 @@ const AvlTree2 = require('./DataStructures/Tree/avlTrie2');
 
 const NodeTree = require('./DataStructures/Tree/nodeTree');
 
+const Graph = require('./DataStructures/Graph/graph');
+
+
+const index = require('./index');
 
 // **********************************
 // *           LinkedList           *
@@ -197,15 +201,15 @@ const NodeTree = require('./DataStructures/Tree/nodeTree');
 // *            AVL TREE            *
 // ##################################
 
-var avlTree = new AvlTree2();
-avlTree.insert(20);
-avlTree.insert(10);
-avlTree.insert(30);
-avlTree.insert(5);
-avlTree.insert(15);
-console.log(avlTree.getLeaf());
+// var avlTree = new AvlTree2();
+// avlTree.insert(20);
+// avlTree.insert(10);
+// avlTree.insert(30);
+// avlTree.insert(5);
+// avlTree.insert(15);
+// console.log(avlTree.getLeaf());
 
-console.log(avlTree.remove(10));
+// console.log(avlTree.remove(10));
 
 // avlTree.insert(5);
 // avlTree.insert(4);
@@ -228,6 +232,39 @@ console.log(avlTree.remove(10));
 
 // avlTree.delete(30);
 
-console.log(avlTree.root);
+// console.log(avlTree.root);
 // console.log(avlTree.root.right);
 
+
+
+// ##################################
+// *               GRAPH            *
+// ##################################
+var graph = new Graph();
+graph.addVertex(0);
+graph.addVertex(1);
+graph.addVertex(2);
+graph.addVertex(3);
+graph.addVertex(4);
+graph.addVertex(5);
+
+graph.addEdge(0,1);
+graph.addEdge(0,2);
+graph.addEdge(1,3);
+graph.addEdge(1,4);
+
+graph.addEdge(2,4);
+graph.addEdge(5,4);
+
+graph.toString();
+console.log(graph.isAdjacent(0, 2))
+console.log(graph.isAdjacent(0, 5))
+console.log(graph.containsVertex(0))
+console.log(graph.containsVertex(56))
+console.log(graph.getNeighbors(0))
+console.log(graph.getNeighbors(56))
+console.log(graph.getVertex())
+console.log('DFS', graph.depthFirstSearch())
+console.log('BFS', graph.breadthFirstSearch())
+console.log(graph.getPath(0, 4))
+console.log(graph.countPaths(0, 4))

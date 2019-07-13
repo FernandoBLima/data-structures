@@ -18,7 +18,9 @@ This repository is a collection about data structures implemented in JavaScript 
 * Tree 
 	* Binary Tree
 	* Avl Tree
-
+* Graph 
+	* Breadth-First Search (BFS)
+	* Depth-First Search (DFS)
 
 ## Algorithms
 
