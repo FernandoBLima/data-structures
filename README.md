@@ -19,16 +19,20 @@ This repository is a collection about data structures implemented in JavaScript 
 	* Binary Tree
 	* Avl Tree
 * Graph 
+	* Undirected Graph
+	* Directed Graph
 	* Breadth-First Search (BFS)
 	* Depth-First Search (DFS)
+	* Dijkstra's algorithm (To Do)
 
 ## Algorithms
 
-* Bubble Sort
-* Bucket Sort
-* Combo Sort
-* Cocktail Sort
-* Insert Sort
-* Quick Sort
-* Select Sort
-* Merge Sort (Doing)
+* Sorting
+	* Bubble Sort
+	* Bucket Sort
+	* Combo Sort
+	* Cocktail Sort
+	* Insert Sort
+	* Quick Sort
+	* Select Sort
+	* Merge Sort (To Do)

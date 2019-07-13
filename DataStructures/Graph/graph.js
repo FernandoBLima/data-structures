@@ -22,9 +22,20 @@ class Graph {
      * @param {number} vertex1
      * @param {number} vertex2
     */
-    addEdge(vertex1, vertex2) { 
+    addEdgeUndirected(vertex1, vertex2) { 
         this.adjacents[vertex1].push(vertex2); 
         this.adjacents[vertex2].push(vertex1); 
+        this.edges++;
+    }
+
+
+    /**
+     * Action to add edge from the vertex to another vertex
+     * @param {number} vertex1
+     * @param {number} vertex2
+    */
+    addEdgeDirected(vertex1, vertex2) { 
+        this.adjacents[vertex1].push(vertex2); 
         this.edges++;
     }
 

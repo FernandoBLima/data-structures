@@ -248,13 +248,15 @@ graph.addVertex(3);
 graph.addVertex(4);
 graph.addVertex(5);
 
-graph.addEdge(0,1);
-graph.addEdge(0,2);
-graph.addEdge(1,3);
-graph.addEdge(1,4);
+graph.addEdgeUndirected(0,1);
+graph.addEdgeUndirected(0,2);
+graph.addEdgeUndirected(1,3);
+graph.addEdgeUndirected(1,4);
 
-graph.addEdge(2,4);
-graph.addEdge(5,4);
+
+
+graph.addEdgeUndirected(2,4);
+graph.addEdgeDirected(5,4);
 
 graph.toString();
 console.log(graph.isAdjacent(0, 2))
