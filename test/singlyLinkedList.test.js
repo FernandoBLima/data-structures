@@ -9,7 +9,7 @@ describe('Singly Linked List', () => {
     const singlyLinkedList = new SinglyLinkedList();
     
     it('should get Singly Linked List empty', () => {
-        expect(singlyLinkedList.getLength()).to.be.equal(10);
+        expect(singlyLinkedList.getLength()).to.be.equal(0);
         expect(singlyLinkedList.isEmpty()).to.be.equal(true);
     });
 

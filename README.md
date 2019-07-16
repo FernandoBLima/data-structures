@@ -1,5 +1,7 @@
 # Data Structures and Algorithms in JavaScript
 
+[![Build Status](https://travis-ci.org/FernandoBLima/data-structures.svg?branch=dev)](https://travis-ci.org/FernandoBLima/data-structures)
+
 This repository is a collection about data structures implemented in JavaScript and contains a series of posts I have made in my blog.
 
 ## Data Structures
