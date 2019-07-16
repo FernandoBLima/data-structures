@@ -19,3 +19,4 @@ const AvlTree2 = require('./DataStructures/Tree/avlTrie2');
 const NodeTree = require('./DataStructures/Tree/nodeTree');
 
 const Graph = require('./DataStructures/Graph/graph');
+const Dictionary = require('./DataStructures/Dictionary/dictionary');

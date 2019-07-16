@@ -1,0 +1,24 @@
+{
+  "name": "data-structures",
+  "version": "0.0.1",
+  "description": "This repository is a collection about data structures implemented in JavaScript and contains a series of posts I have made in my blog.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FernandoBLima/data-structures.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FernandoBLima/data-structures/issues"
+  },
+  "homepage": "https://github.com/FernandoBLima/data-structures#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  }
+}

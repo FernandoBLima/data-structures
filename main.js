@@ -28,10 +28,10 @@ const index = require('./index');
 // **********************************
 // *           LinkedList           *
 // **********************************
-// var linkedList = new LinkedList();
-// linkedList.addAtHead(3) // 3
-// linkedList.addAtHead(6) // 6 - 3
-// linkedList.addAtHead(4) // 4 - 6 - 3
+var linkedList = new LinkedList();
+linkedList.addAtHead(3) // 3
+linkedList.addAtHead(6) // 6 - 3
+linkedList.addAtHead(4) // 4 - 6 - 3
 // linkedList.addAtHead(44) // 44 - 4 - 6 - 3
 // linkedList.addAtHead(24) // 24 - 44 - 4 - 6 - 3
 // linkedList.addAtHead(84) // 84 - 24 - 44 - 4 - 6 - 3
@@ -44,7 +44,7 @@ const index = require('./index');
 // linkedList.getAtIndex(1); // 24 Node
 // linkedList.removeValue(24) // 1 - 44 - 4 - 6 - 3
 // console.log(linkedList.isEmpty()) // false
-// console.log(linkedList.getLenght()) // 5
+// console.log(linkedList.getLength()) // 5
 // linkedList.reverse() // 3 - 6 - 4 - 44 - 1
 // console.log(linkedList.head); // 3
 // console.log(linkedList.tail); // 1
