@@ -21,6 +21,7 @@ const NodeTree = require('./DataStructures/Tree/nodeTree');
 
 const Graph = require('./DataStructures/Graph/graph');
 
+const DisjoinSet = require('./DataStructures/DisjointSet/disjointSet');
 
 const index = require('./index');
 
@@ -241,32 +242,51 @@ const index = require('./index');
 // *               GRAPH            *
 // ##################################
 var graph = new Graph();
-graph.addVertex(0);
-graph.addVertex(1);
-graph.addVertex(2);
-graph.addVertex(3);
-graph.addVertex(4);
-graph.addVertex(5);
+// graph.addVertex(0);
+// graph.addVertex(1);
+// graph.addVertex(2);
+// graph.addVertex(3);
+// graph.addVertex(4);
+// graph.addVertex(5);
 
-graph.addEdgeUndirected(0,1);
-graph.addEdgeUndirected(0,2);
-graph.addEdgeUndirected(1,3);
-graph.addEdgeUndirected(1,4);
+// graph.addEdgeUndirected(0,1);
+// graph.addEdgeUndirected(0,2);
+// graph.addEdgeUndirected(1,3);
+// graph.addEdgeUndirected(1,4);
 
 
 
-graph.addEdgeUndirected(2,4);
-graph.addEdgeDirected(5,4);
+// graph.addEdgeUndirected(2,4);
+// graph.addEdgeDirected(5,4);
 
-graph.toString();
-console.log(graph.isAdjacent(0, 2))
-console.log(graph.isAdjacent(0, 5))
-console.log(graph.containsVertex(0))
-console.log(graph.containsVertex(56))
-console.log(graph.getNeighbors(0))
-console.log(graph.getNeighbors(56))
-console.log(graph.getVertex())
-console.log('DFS', graph.depthFirstSearch())
-console.log('BFS', graph.breadthFirstSearch())
-console.log(graph.getPath(0, 4))
-console.log(graph.countPaths(0, 4))
+// graph.toString();
+// console.log(graph.isAdjacent(0, 2))
+// console.log(graph.isAdjacent(0, 5))
+// console.log(graph.containsVertex(0))
+// console.log(graph.containsVertex(56))
+// console.log(graph.getNeighbors(0))
+// console.log(graph.getNeighbors(56))
+// console.log(graph.getVertex())
+// console.log('DFS', graph.depthFirstSearch())
+// console.log('BFS', graph.breadthFirstSearch())
+// console.log(graph.getPath(0, 4))
+// console.log(graph.countPaths(0, 4))
+
+
+
+// ##################################
+// *           Disjoint Set         *
+// ##################################
+var disjoinSet = new DisjoinSet();
+// disjoinSet.init(5);
+// disjoinSet.union(0,1);
+// disjoinSet.union(2,3);
+// disjoinSet.union(0,2);
+// console.log(disjoinSet.extractSets());
+// console.log(disjoinSet.getChildrenByItem(2));
+// console.log(disjoinSet.findRoot(2));
+// console.log(disjoinSet.getSizeSet(1));
+// console.log(disjoinSet.isConnected(0,1));
+// console.log(disjoinSet.list);
+
+

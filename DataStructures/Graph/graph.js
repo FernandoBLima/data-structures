@@ -159,7 +159,6 @@ class Graph {
         queue.push(vertex)
         while(queue.length > 0){
             var u = queue.shift();
-
             if(u != null){
                 console.log('Visited Vertex: ' + u);
             }

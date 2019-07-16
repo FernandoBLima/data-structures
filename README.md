@@ -24,6 +24,8 @@ This repository is a collection about data structures implemented in JavaScript 
 	* Breadth-First Search (BFS)
 	* Depth-First Search (DFS)
 	* Dijkstra's algorithm (To Do)
+* Disjoint Set 
+
 
 ## Algorithms
 
