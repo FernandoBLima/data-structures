@@ -3,7 +3,8 @@
 [![Build Status](https://travis-ci.org/FernandoBLima/data-structures.svg?branch=dev)](https://travis-ci.org/FernandoBLima/data-structures)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This repository is a collection about data structures implemented in JavaScript and contains a series of posts I have made in my blog.
+This repository is a collection about data structures implemented in JavaScript.
+
 
 ## Data Structures
 
