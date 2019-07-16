@@ -1,15 +1,15 @@
-# language: node_js
+language: node_js
 
-# node_js:
-#     - "10"
+node_js:
+    - "10"
   
-# install:
-#     - npm install
+install:
+    - npm install
 
-# script:
-#     - npm test
+script:
+    - npm test
 
-# notifications:
-#     email:
-#       on_success: never
-#       on_failure: never
+notifications:
+    email:
+      on_success: never
+      on_failure: never
