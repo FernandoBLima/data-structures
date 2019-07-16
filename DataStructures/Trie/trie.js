@@ -133,7 +133,6 @@ class Trie {
     _suggestionWord(node, key, word, lastWord, arra){
 
         var letters = Object.keys(node.children); 
-
         for (let index = 0; index < letters.length; index++) {
             const element = letters[index];
             if(node.children[element].isEndOfWord){
@@ -143,10 +142,8 @@ class Trie {
                 var rest = lastWord + node.children[element].character;
                 this._suggestionWord(node.children[element], key, word, rest, arra)
             }
-
         }
         return arra
-
     }
 
 

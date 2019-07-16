@@ -8,8 +8,8 @@ const PriorityHeap = require('./DataStructures/PriorityQueue/priorityHeap');
 const HeapMin = require('./DataStructures/Heap/heapMin');
 const HeapMax = require('./DataStructures/Heap/heapMax');
 
-const Map = require('./DataStructures/hashMap/map');
-const HashTable = require('./DataStructures/hashMap/hashTable');
+const HashTable = require('./DataStructures/HashTable/hashTable');
+const Dictionary = require('./DataStructures/Dictionary/dictionary');
 
 const Trie = require('./DataStructures/Trie/trie');
 
@@ -133,27 +133,6 @@ const index = require('./index');
 // priorityHeap.insert('value 9', 9);
 // priorityHeap.insert('value 2', 3);
 // console.log('priorityHeap', priorityHeap)
-
-
-
-// ##################################
-// *              Map               *
-// ##################################
-// var map = new Map();
-// map.add('value 1', 1);
-// map.add('value 2', 2);
-// console.log(map.get(2));
-// console.log(map);
-
-
-// ##################################
-// *            HashTable           *
-// ##################################
-// var hashTable = new HashTable();
-// hashTable.add('valsdfgsgue ew', 'key');
-// hashTable.add('value 2', 'key2');
-// console.log(hashTable.get('key2'));
-// console.log(hashTable);
 
 
 // ##################################
@@ -290,3 +269,31 @@ var disjoinSet = new DisjoinSet();
 // console.log(disjoinSet.list);
 
 
+// ##################################
+// *           Dictionary           *
+// ##################################
+var dictionary = new Dictionary();
+// dictionary.setItem('key 1', 1);
+// dictionary.setItem('key 2', 2);
+// console.log(dictionary.deleteItem('key 2'));
+// dictionary.setItem('key 6', 6);
+// dictionary.setItem('key 5', 5);
+// dictionary.setItem('key 4', 4);
+// dictionary.setItem('key 3', 3);
+
+// console.log(dictionary.hasItem('key 1'));
+// console.log(dictionary.getItem('key 1'));
+// console.log(dictionary.getValues());
+// console.log(dictionary.getKeys());
+// console.log(dictionary.sort());
+// console.log(dictionary.getlist());
+
+
+// ##################################
+// *            HashTable           *
+// ##################################
+var hashTable = new HashTable();
+// hashTable.add('valsdfgsgue ew', 'key');
+// hashTable.add('value 2', 'key2');
+// console.log(hashTable.get('key2'));
+// console.log(hashTable);

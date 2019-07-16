@@ -52,9 +52,6 @@ class AvlTree extends BinaryTrie {
             }
         }
 
-        console.log('currentNodeeeeeee',node)
-
-
     }
 
 

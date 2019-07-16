@@ -8,8 +8,7 @@ const PriorityHeap = require('./DataStructures/PriorityQueue/priorityHeap');
 const HeapMin = require('./DataStructures/Heap/heapMin');
 const HeapMax = require('./DataStructures/Heap/heapMax');
 
-const Map = require('./DataStructures/hashMap/map');
-const HashTable = require('./DataStructures/hashMap/hashTable');
+const HashTable = require('./DataStructures/HashTable/hashTable');
 
 const Trie = require('./DataStructures/Trie/trie');
 

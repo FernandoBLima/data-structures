@@ -4,6 +4,8 @@ This repository is a collection about data structures implemented in JavaScript 
 
 ## Data Structures
 
+* Dictionary 
+* HashTable 
 * Linked List 
 	* Simply Linked List
 	* Doubly Linked List
