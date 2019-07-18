@@ -4,7 +4,9 @@
   "description": "This repository is a collection about data structures implemented in JavaScript and contains a series of posts I have made in my blog.",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha"
+    "test": "nyc node ./node_modules/mocha/bin/mocha",
+    "test:coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,8 @@
   "dependencies": {},
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^6.1.4"
+    "coveralls": "^3.0.5",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1"
   }
 }

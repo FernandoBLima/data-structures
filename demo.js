@@ -1,37 +1,13 @@
-const Queue = require('./DataStructures/LinkedList/queue');
-const Stack = require('./DataStructures/LinkedList/stack');
-const LinkedList = require('./DataStructures/LinkedList/linkedList');
-
-const PriorityQueue = require('./DataStructures/PriorityQueue/priorityQueue');
-const PriorityHeap = require('./DataStructures/PriorityQueue/priorityHeap');
-
-const HeapMin = require('./DataStructures/Heap/heapMin');
-const HeapMax = require('./DataStructures/Heap/heapMax');
-
-const HashTable = require('./DataStructures/HashTable/hashTable');
-const Dictionary = require('./DataStructures/Dictionary/dictionary');
-
-const Trie = require('./DataStructures/Trie/trie');
-
-const BinaryTree = require('./DataStructures/Tree/binaryTree');
-const AvlTree = require('./DataStructures/Tree/avlTrie');
-const AvlTree2 = require('./DataStructures/Tree/avlTrie2');
-
-const NodeTree = require('./DataStructures/Tree/nodeTree');
-
-const Graph = require('./DataStructures/Graph/graph');
-
-const DisjoinSet = require('./DataStructures/DisjointSet/disjointSet');
-
-const index = require('./index');
+const lib = require('./index');
 
 // **********************************
 // *           LinkedList           *
 // **********************************
-var linkedList = new LinkedList();
-linkedList.addAtHead(3) // 3
-linkedList.addAtHead(6) // 6 - 3
-linkedList.addAtHead(4) // 4 - 6 - 3
+var linkedList = new lib.LinkedList();
+console.log(linkedList)
+// linkedList.addAtHead(3) // 3
+// linkedList.addAtHead(6) // 6 - 3
+// linkedList.addAtHead(4) // 4 - 6 - 3
 // linkedList.addAtHead(44) // 44 - 4 - 6 - 3
 // linkedList.addAtHead(24) // 24 - 44 - 4 - 6 - 3
 // linkedList.addAtHead(84) // 84 - 24 - 44 - 4 - 6 - 3
@@ -54,7 +30,7 @@ linkedList.addAtHead(4) // 4 - 6 - 3
 // ##################################
 // *           Queue                *
 // ##################################
-// var queue = new Queue();
+// var queue = new lib.Queue();
 // queue.enqueue(4); // 4
 // queue.enqueue(5); // 5 - 4
 // queue.enqueue(6); // 6 - 5 - 4
@@ -65,7 +41,7 @@ linkedList.addAtHead(4) // 4 - 6 - 3
 // ##################################
 // *           Stack                *
 // ##################################
-// var stack = new Stack();
+// var stack = new lib.Stack();
 // stack.push(1); // 1
 // stack.push(2); // 1 - 2
 // stack.push(3); // 1 - 2 - 3
@@ -78,7 +54,7 @@ linkedList.addAtHead(4) // 4 - 6 - 3
 // ##################################
 // *           HeapMin              *
 // ##################################
-// var heapMin = new HeapMin();
+// var heapMin = new lib.HeapMin();
 // heapMin.build_heap([3,10,11,5,15,17, 13, 12, 14, 8, 21]); // 3, 5, 11, 10, 8, 17, 13, 12, 11, 15, 21
 // heapMin.getSize() // 11
 // heapMin.removeFromTop(); //5, 8, 11, 10, 15, 17, 13, 12, 14, 21
@@ -89,7 +65,7 @@ linkedList.addAtHead(4) // 4 - 6 - 3
 // ##################################
 // *           HeapMax              *
 // ##################################
-// var heapMax = new HeapMax();
+// var heapMax = new lib.HeapMax();
 // heapMax.build_heap([3,10,11,5,15,17]); // 17, 11, 15, 3, 5, 10
 // heapMax.insert(4); // 17, 11, 15, 3, 5, 10, 4 
 // heapMax.removeFromTop(); // 15, 11, 10, 3, 5, 4
@@ -102,7 +78,7 @@ linkedList.addAtHead(4) // 4 - 6 - 3
 // ##################################
 // *          Priority Queue        *
 // ##################################
-// var priorityQueue = new PriorityQueue();
+// var priorityQueue = new lib.PriorityQueue();
 // priorityQueue.enqueue('value 1', 1);
 // priorityQueue.enqueue('value 2', 2);
 // priorityQueue.enqueue('value 3', 3);
@@ -121,7 +97,7 @@ linkedList.addAtHead(4) // 4 - 6 - 3
 // ##################################
 // *          Priority Heap         *
 // ##################################
-// var priorityHeap = new PriorityHeap();
+// var priorityHeap = new lib.PriorityHeap();
 // priorityHeap.insert('value 1', 1);
 // priorityHeap.insert('value 2', 2);
 // priorityHeap.insert('value 3', 3);
@@ -138,7 +114,7 @@ linkedList.addAtHead(4) // 4 - 6 - 3
 // ##################################
 // *              Trie              *
 // ##################################
-// var trie = new Trie();
+// var trie = new lib.Trie();
 // trie.insert('abc');
 // trie.insert('abb');
 // trie.insertRecursive('acd');
@@ -160,7 +136,7 @@ linkedList.addAtHead(4) // 4 - 6 - 3
 // ##################################
 // *            BinaryTree          *
 // ##################################
-// var binaryTree = new BinaryTree();
+// var binaryTree = new lib.BinaryTree();
 // binaryTree.insert(23)
 // binaryTree.insert(55)
 // binaryTree.insert(21)
@@ -220,7 +196,7 @@ linkedList.addAtHead(4) // 4 - 6 - 3
 // ##################################
 // *               GRAPH            *
 // ##################################
-var graph = new Graph();
+// var graph = new lib.Graph();
 // graph.addVertex(0);
 // graph.addVertex(1);
 // graph.addVertex(2);
@@ -256,7 +232,7 @@ var graph = new Graph();
 // ##################################
 // *           Disjoint Set         *
 // ##################################
-var disjoinSet = new DisjoinSet();
+// var disjoinSet = new lib.DisjoinSet();
 // disjoinSet.init(5);
 // disjoinSet.union(0,1);
 // disjoinSet.union(2,3);
@@ -272,7 +248,7 @@ var disjoinSet = new DisjoinSet();
 // ##################################
 // *           Dictionary           *
 // ##################################
-var dictionary = new Dictionary();
+// var dictionary = new lib.Dictionary();
 // dictionary.setItem('key 1', 1);
 // dictionary.setItem('key 2', 2);
 // console.log(dictionary.deleteItem('key 2'));
@@ -292,7 +268,7 @@ var dictionary = new Dictionary();
 // ##################################
 // *            HashTable           *
 // ##################################
-var hashTable = new HashTable();
+// var hashTable = new lib.HashTable();
 // hashTable.add('valsdfgsgue ew', 'key');
 // hashTable.add('value 2', 'key2');
 // console.log(hashTable.get('key2'));

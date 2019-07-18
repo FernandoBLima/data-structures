@@ -3,7 +3,7 @@ var chai = require('chai'),
     expect = chai.expect,
     should = chai.should();
 
-    const Dictionary = require('../DataStructures/Dictionary/dictionary');
+    const Dictionary = require('../src/DataStructures/Dictionary/dictionary');
 
     describe('Dictionary', () => {
         const dictionary = new Dictionary();

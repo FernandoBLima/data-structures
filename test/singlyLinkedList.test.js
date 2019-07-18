@@ -3,7 +3,7 @@ var chai = require('chai'),
 expect = chai.expect,
 should = chai.should();
 
-const SinglyLinkedList = require('../DataStructures/LinkedList/singlyLinkedList');
+const SinglyLinkedList = require('../src/DataStructures/LinkedList/singlyLinkedList');
 
 describe('Singly Linked List', () => {
     const singlyLinkedList = new SinglyLinkedList();
