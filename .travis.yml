@@ -7,7 +7,7 @@ install:
     - npm install
 
 script:
-    - test:coveralls
+    - npm run test:coveralls
 
 notifications:
     email: false
