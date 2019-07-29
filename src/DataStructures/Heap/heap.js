@@ -6,7 +6,7 @@
 class Heap {
 
     constructor() {
-        this.list = []
+        this.list = [];
         this.size = 0;
     }
 
@@ -17,7 +17,7 @@ class Heap {
     insert(value){
         this.list.push(value);
         this.size++;
-        var childrenIndex = this.list.indexOf(value)
+        var childrenIndex = this.list.indexOf(value);
 
         while(this.hasParent(childrenIndex)){
             if(this.shouldSwap(childrenIndex, this.getParentIndex(childrenIndex))){
@@ -36,12 +36,9 @@ class Heap {
     * @param {number} indexTwo
    */
     swapElements(childrenIndex, parentIndex) {
-
         const tmp = this.list[parentIndex];
         this.list[parentIndex] = this.list[childrenIndex];
         this.list[childrenIndex] = tmp;
-        // childrenIndex = parentIndex;
-        // parentIndex = this.getParentIndex(parentIndex);
     }   
 
 
@@ -105,47 +102,22 @@ class Heap {
     */
     heapify(index){
         let left = this.getLeftChildrenIndex(index),
-        right = this.getRightChildrenIndex(index),
-        largest = index;
+            right = this.getRightChildrenIndex(index),
+            largest = index;
+
+        if(!this.list[left]) return;
 
         if(this.shouldSwap(left, largest) ){
             largest = left;
         }
         if(this.shouldSwap(right, largest) ){
-            largest = right
+            largest = right;
         }
         if(largest !== index){
-            [this.list[largest],this.list[index]] = [this.list[index],this.list[largest]]
-            this.heapify(largest)
+            [this.list[largest],this.list[index]] = [this.list[index],this.list[largest]];
+            this.heapify(largest);
         }
     }
-
-
-    // heapify(){
-    //     this.swapElements(this.list.length - 1, 0);
-    //     this.list[this.list.length - 1] = null;
-    //     this.size--;
-    //     var currentNode = this.peek();
-
-    //     while(this.hasLeftChild(this.list.indexOf(currentNode))){
-    //         var position;
-    //         var currentIndex = this.list.indexOf(currentNode)
-
-    //         if(this.hasRightChild(currentIndex) && this.shouldSwap(this.getLeftChild(currentIndex), this.getRightChild(currentIndex))){
-    //             position = this.getLeftChild(currentIndex);
-    //         } else {
-    //             position = this.getRightChild(currentIndex);
-    //         }
-
-    //         if(this.shouldSwap( this.list.indexOf(position), this.list.indexOf(currentNode))){
-    //             this.swapElements(this.list.indexOf(currentNode), this.list.indexOf(position));
-    //         } else {
-    //             break;
-    //         }
-    //     }
-
-    // }
-
 
     /**
       * Returns the parent node
@@ -188,7 +160,7 @@ class Heap {
       * Action to check if heap is empty
     */
     isEmpty(){
-        return this.heapSize === 0;
+        return this.list.length > 0 ? false : true;
     }
 
     /**
@@ -197,7 +169,6 @@ class Heap {
     peek(){
         return this.list[0];
     }
-
 
     /**
       * @param {number} parentIndex
@@ -215,13 +186,12 @@ class Heap {
         return this.getRightChildrenIndex(parentIndex) < this.list.length;
     }   
 
-
     /**
       * @param {number} parentIndex
       * @return {boolean}
     */
     getLeftChild(parentIndex) {
-        return this.list[this.getLeftChildrenIndex(parentIndex)]
+        return this.list[this.getLeftChildrenIndex(parentIndex)];
     }
 
     /**
@@ -229,9 +199,8 @@ class Heap {
       * @return {boolean}
     */
     getRightChild(parentIndex) {
-        return this.list[this.getRightChildrenIndex(parentIndex)]
+        return this.list[this.getRightChildrenIndex(parentIndex)];
     }
-
 
     /**
       * Returns the right child node
@@ -251,7 +220,13 @@ class Heap {
         return (2*parentIndex)+1;
     }   
 
-
+    /** 
+     * Return the list of items in heap
+      * @return {Array}
+    */
+    displayHeap() {
+        return this.list;
+    }
 
 }
 

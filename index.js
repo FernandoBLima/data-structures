@@ -1,7 +1,10 @@
-const Queue = require('./src/DataStructures/LinkedList/queue');
-const Stack = require('./src/DataStructures/LinkedList/stack');
 const LinkedList = require('./src/DataStructures/LinkedList/linkedList');
 const SinglyLinkedList = require('./src/DataStructures/LinkedList/singlyLinkedList');
+const DoublyLinkedList = require('./src/DataStructures/LinkedList/doublyLinkedList');
+const CircularLinkedList = require('./src/DataStructures/LinkedList/circularLinkedList');
+
+const Queue = require('./src/DataStructures/Queue/queue');
+const Stack = require('./src/DataStructures/Stack/stack');
 
 const PriorityQueue = require('./src/DataStructures/PriorityQueue/priorityQueue');
 const PriorityHeap = require('./src/DataStructures/PriorityQueue/priorityHeap');
@@ -30,6 +33,8 @@ module.exports = {
     DisjoinSet: DisjoinSet,
     LinkedList : LinkedList,
     SinglyLinkedList : SinglyLinkedList,
+    CircularLinkedList: CircularLinkedList,
+    DoublyLinkedList : DoublyLinkedList, 
     Queue : Queue,
     Stack : Stack,
     PriorityQueue: PriorityQueue,
@@ -39,6 +44,5 @@ module.exports = {
     Trie : Trie,
     BinaryTree : BinaryTree,
     NodeTree : NodeTree,
-    Graph : Graph,
-
-}
+    Graph : Graph
+};

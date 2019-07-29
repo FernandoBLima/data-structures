@@ -1,9 +1,9 @@
-const ClassSort = require('./classSort')
+const ClassSort = require('./classSort');
 
 class InsertSort extends ClassSort{
 
     constructor() {
-        super()
+        super();
     }
 
     sort(){

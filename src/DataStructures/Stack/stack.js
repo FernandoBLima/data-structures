@@ -1,23 +1,21 @@
-const LinkedList = require('./linkedList');
+const LinkedList = require('../LinkedList/linkedList');
 const Node = require('./node');
-
 
 class Stack extends LinkedList{
     constructor() {
-        super()
+        super();
         this.length = 0;
-      }
-      
+    }
       
     /**
      * Action to add elemnent in the tail (a.k.a. addFAtTail)
      * @param {number} value
      */
     push(value){
-        var newNode = new Node(value, null, this.tail);
-        if(this.tail){
-            this.tail.next = newNode;
-            this.tail = newNode;
+        var newNode = new Node(value, null, null);
+        if(this.head){
+            newNode.next = this.head;
+            this.head = newNode;
         }else{
             this.head = newNode;
             this.tail = newNode;
@@ -33,10 +31,9 @@ class Stack extends LinkedList{
         if(this.head){
             var newHead = this.head.next;
             this.head = newHead;
-            this.head.prev = null;
-            this.length--
+            this.length--;
         }else{
-            throw new Error('Head do not exist!');
+            return false;
         }
     }
 

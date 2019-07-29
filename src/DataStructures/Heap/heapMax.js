@@ -1,17 +1,13 @@
 const Heap = require('./heap');
 
-
 class HeapMax extends Heap{
     constructor() {
-        super()
+        super();
     }
-
 
     shouldSwap(childIndex, parentIndex) {
-        return this.list[childIndex] > this.list[parentIndex]
+        return this.list[childIndex] > this.list[parentIndex];
     }
-
-
 
 }
 

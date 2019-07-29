@@ -7,17 +7,6 @@ class TrieNode {
         this.character = value;
     }
 
-    getCharacter(){
-        return this.character;
-    }
-
-    getEnd(){
-        return this.isEndOfWord;
-    }
-
-    getChild(){
-        return this.children;
-    }
 }
 
 module.exports = TrieNode;

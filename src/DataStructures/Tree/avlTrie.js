@@ -4,7 +4,7 @@ const BalanceState = {
     UNBALANCED_RIGHT: 'UNBALANCED_RIGHT',
     UNBALANCED_LEFT: 'UNBALANCED_LEFT',
     BALANCED: 'BALANCED',
-}
+};
 
 class AvlTree extends BinaryTrie {
 
@@ -18,7 +18,7 @@ class AvlTree extends BinaryTrie {
         while (currentNode != null) {
             this.balance(currentNode, key);
             currentNode = super.findParent(currentNode.key);
-         };
+        }
     }
 
     /**
@@ -26,9 +26,9 @@ class AvlTree extends BinaryTrie {
      * @param {number} value The key being deleted.
      */
     remove(value) {
-      currentNode = super.findParent(value);
-      super.remove(value);
-      this.balance(currentNode, value);
+        var currentNode = super.findParent(value);
+        super.remove(value);
+        this.balance(currentNode, value);
     }
     
     /**
@@ -51,20 +51,19 @@ class AvlTree extends BinaryTrie {
                 this.rotateRightLeft(node);
             }
         }
-
     }
 
 
     rotateRightLeft(rootNode) {
         const rightNode = rootNode.right;
-        rootNode.right = null ;
+        rootNode.right = null;
     
         const rightLeftNode = rightNode.left;
         rightNode.left = null;
     
         if (rightLeftNode.right) {
-          rightNode.left = rightLeftNode.right;
-          rightLeftNode.right = null;
+            rightNode.left = rightLeftNode.right;
+            rightLeftNode.right = null;
         }
     
         rootNode.right = rightLeftNode;
@@ -74,7 +73,7 @@ class AvlTree extends BinaryTrie {
         rootNode.height = this.updateHeigh(rootNode);
 
         this.rotateRightRight(rootNode);
-      }
+    }
 
 
     rotateRightRight(rootNode) {
@@ -91,19 +90,18 @@ class AvlTree extends BinaryTrie {
         // } else 
 
         if (rootNode === this.root) {
-          this.root = rightNode;
-          let leftChild = this.root.left;
-          this.root.left = rootNode;
-          this.root.left.right = leftChild
+            this.root = rightNode;
+            let leftChild = this.root.left;
+            this.root.left = rootNode;
+            this.root.left.right = leftChild;
         }else{
-          var parentNode = super.findParent(rootNode.key);
-          rightNode.left = rootNode
-          parentNode.right = rightNode;
+            var parentNode = super.findParent(rootNode.key);
+            rightNode.left = rootNode;
+            parentNode.right = rightNode;
 
-          parentNode.right.left.height = this.updateHeigh(parentNode.right.left);
-          parentNode.left.height = this.updateHeigh(parentNode.left);
-          parentNode.height = this.updateHeigh(parentNode);
-
+            parentNode.right.left.height = this.updateHeigh(parentNode.right.left);
+            parentNode.left.height = this.updateHeigh(parentNode.left);
+            parentNode.height = this.updateHeigh(parentNode);
         }
     
         // if (rightNode.left) {
@@ -116,33 +114,32 @@ class AvlTree extends BinaryTrie {
         rootNode.height = this.updateHeigh(rootNode);
         this.root.height = this.updateHeigh(this.root);
 
-      }
+    }
 
 
     rotateLeftLeft(rootNode) {
-      const leftNode = rootNode.left;
-      rootNode.left = null;
+        const leftNode = rootNode.left;
+        rootNode.left = null;
 
-      if (rootNode === this.root) {
-        this.root = leftNode;
-        let leftChild = this.root.right;
-        this.root.right = rootNode;
-        this.root.right.left = leftChild
-      }else{
-        var parentNode = super.findParent(rootNode.key);
-        leftNode.right = rootNode
-        parentNode.left = leftNode;
+        if (rootNode === this.root) {
+            this.root = leftNode;
+            let leftChild = this.root.right;
+            this.root.right = rootNode;
+            this.root.right.left = leftChild;
+        }else{
+            var parentNode = super.findParent(rootNode.key);
+            leftNode.right = rootNode;
+            parentNode.left = leftNode;
 
-        parentNode.left.right.height = this.updateHeigh(parentNode.left.right);
-        parentNode.right.height = this.updateHeigh(parentNode.right);
-        parentNode.height = this.updateHeigh(parentNode);
-
-      }
+            parentNode.left.right.height = this.updateHeigh(parentNode.left.right);
+            parentNode.right.height = this.updateHeigh(parentNode.right);
+            parentNode.height = this.updateHeigh(parentNode);
+        }
 
         leftNode.height = this.updateHeigh(leftNode);
         rootNode.height = this.updateHeigh(rootNode);
         this.root.height = this.updateHeigh(this.root);
-      }
+    }
     
     
     rotateLeftRight(rootNode) {
@@ -159,7 +156,6 @@ class AvlTree extends BinaryTrie {
 
         rootNode.left = leftRightNode;
         leftRightNode.left = leftNode;
-    
 
         rootNode.height = this.updateHeigh(rootNode);
         leftRightNode.left.height = this.updateHeigh(leftRightNode.left);
@@ -197,8 +193,6 @@ class AvlTree extends BinaryTrie {
         }
     } 
     
-
 }
-
 
 module.exports = AvlTree;

@@ -1,8 +1,7 @@
-
 class MergeSort {
 
     constructor() {
-        this.data = []
+        this.data = [];
         this.size = 4;
     }
 
@@ -24,7 +23,7 @@ class MergeSort {
 
     _sort(data, left, right){
         if(left < right){
-            var middle = Math.floor((right + left) / 2)
+            var middle = Math.floor((right + left) / 2);
             this._sort(data, left, middle);
             this._sort(data, middle + 1, right);
             this._merge(data, left, middle, right);
@@ -37,20 +36,20 @@ class MergeSort {
         var j = meio + 1;
         var k = indiceInicio;
 
-        var auxiliar = []
+        var auxiliar = [];
 
         for (var u = indiceInicio; u <= indiceFim; u++) {
             auxiliar[u] = array[u];
         }
-        console.log(indiceInicio)
-        console.log(meio)
-        console.log(indiceFim)
+        console.log(indiceInicio);
+        console.log(meio);
+        console.log(indiceFim);
 
-        console.log(auxiliar)
-        console.log(array)
-        console.log(auxiliar[i])
-        console.log(auxiliar[j])
-        console.log('-----------')
+        console.log(auxiliar);
+        console.log(array);
+        console.log(auxiliar[i]);
+        console.log(auxiliar[j]);
+        console.log('-----------');
 
         while (i <= meio && j <= indiceFim) {
             if (auxiliar[i] >= (auxiliar[j]) ) {

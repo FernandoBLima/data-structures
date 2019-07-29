@@ -1,13 +1,11 @@
-const NodeTree = require('./nodeTree')
-
+const NodeTree = require('./nodeTree');
 
 class BinaryTrie {
     constructor() {
-        this.head = null
-        this.tail = null
-        this.length = null;
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
     }
-
 
     /**
      * Action to insert a new node in tre with a value.
@@ -16,11 +14,12 @@ class BinaryTrie {
     insert(value){
         if(!this.root){
             this.root = new NodeTree(value);
+            this.length++;
         }else{
-            this._insertNode(this.root, value)
+            this._insertNode(this.root, value);
+            this.length++;
         }
     }
-
 
     /**
      * Recursive function to insert a new node in the tree.
@@ -32,22 +31,19 @@ class BinaryTrie {
         if(currentNode.key){
             if(value < currentNode.key){
                 if(!currentNode.left){
-                    currentNode.left = new NodeTree(value)
+                    currentNode.left = new NodeTree(value);
                 }else{
-                    this._insertNode(currentNode.left, value)
+                    this._insertNode(currentNode.left, value);
                 }
             } else {
                 if(!currentNode.right){
-                    currentNode.right = new NodeTree(value)
+                    currentNode.right = new NodeTree(value);
                 }else{
-                    this._insertNode(currentNode.right, value)
+                    this._insertNode(currentNode.right, value);
                 }
             }
-            currentNode.height = 1 + this.maxHeight(this.getHeight(currentNode.left),
-                                        this.getHeight(currentNode.right));
-            currentNode.balance = this.getBalanceNode(currentNode)
-
-
+            currentNode.height = 1 + this.maxHeight(this.getHeight(currentNode.left), this.getHeight(currentNode.right));
+            currentNode.balance = this.getBalanceNode(currentNode);
         }
     }
 
@@ -64,9 +60,8 @@ class BinaryTrie {
             right = node.right.height;
         }
         return left - (right);
-      }
+    }
   
-
     /**
      * Recursive function to insert a new node in the tree.
      * @param {NodeTree} leftValue
@@ -94,7 +89,7 @@ class BinaryTrie {
         if(!this.root){
             return null;
         }else{
-            return this._search(this.root, value)
+            return this._search(this.root, value);
         }
     }
 
@@ -102,9 +97,9 @@ class BinaryTrie {
         if(node){
             if(node.key != value){
                 if(value < node.key){
-                    return this._search(node.left, value)
+                    return this._search(node.left, value);
                 }else{
-                    return this._search(node.right, value)
+                    return this._search(node.right, value);
                 }
             }else{
                 return true;
@@ -122,7 +117,7 @@ class BinaryTrie {
     */   
     findParent(value){
         if (this.root == null) 
-            return; 
+            return false; 
         return this._findParent(this.root, value);
     }
 
@@ -154,7 +149,7 @@ class BinaryTrie {
     */    
     findNode(value){
         if (this.root == null) 
-            return; 
+            return false; 
         return this._findNode(this.root, value);
     }
 
@@ -219,9 +214,10 @@ class BinaryTrie {
      */
     delete(value){
         if(!this.findNode(value)){
-            return 'Not found';
+            return false;
         }
-        return this._delete(this.root, value)
+        this._delete(this.root, value);
+        return true;
     }
 
 
@@ -234,9 +230,9 @@ class BinaryTrie {
         }
 
         if(value < node.key){
-            node.left = this._delete(node.left, value)
+            node.left = this._delete(node.left, value);
         }else if(value > node.key){
-            node.right = this._delete(node.right, value)
+            node.right = this._delete(node.right, value);
         }else{
             if(node.left == null){
                 return node.right;
@@ -259,12 +255,11 @@ class BinaryTrie {
 
     _minValue(node){
         var current = node.key;
-
         while(node.left != null){
             current = node.left.key;
             node = node.left;
         }
-        return current
+        return current;
     }
 
 
@@ -273,29 +268,31 @@ class BinaryTrie {
      * Returns Inorder traversal of a binary tree
      * @return {[number]} List of values.
      */
-     inOrder(){ 
-         if (this.root == null) 
-             return; 
-         var listValues = [];
-         return this._inOrder(this.root, listValues); 
-     } 
+    inOrder(){ 
+        if (this.root == null) 
+            return; 
+        var listValues = [];
+        return this._inOrder(this.root, listValues); 
+    } 
 
 
-     /* Inorder traversal of a binary tree*/
-
-     _inOrder(node, listValues){
-        if(node.left != null) this._inOrder(node.left, listValues);
-        if(node.key != null) listValues.push(node.key);
-        if(node.right != null) this._inOrder(node.right, listValues);
-        return listValues
-     }
+    /* Inorder traversal of a binary tree*/
+    _inOrder(node, listValues){
+        if(node.left != null) 
+            this._inOrder(node.left, listValues);
+        if(node.key != null) 
+            listValues.push(node.key);
+        if(node.right != null) 
+            this._inOrder(node.right, listValues);
+        return listValues;
+    }
 
 
     /**
      * Returns PreOrder traversal of a binary tree
      * @return {[number]} List of values.
      */
-     preOrder(){ 
+    preOrder(){ 
         if (this.root == null) 
             return; 
         var listValues = [];
@@ -303,13 +300,16 @@ class BinaryTrie {
     } 
 
     _preOrder(node, listValues){
-       if(node.key != null) listValues.push(node.key);
-       if(node.left != null) this._preOrder(node.left, listValues);
-       if(node.right != null) this._preOrder(node.right, listValues);
-       return listValues
+        if(node.key != null) 
+            listValues.push(node.key);
+        if(node.left != null) 
+            this._preOrder(node.left, listValues);
+        if(node.right != null) 
+            this._preOrder(node.right, listValues);
+        return listValues;
     }
 
-      /**
+    /**
      * Returns PosOrder traversal of a binary tree
      * @return {[number]} List of values.
      */
@@ -324,10 +324,21 @@ class BinaryTrie {
         if(node.left != null) this._posOrder(node.left, listValues);
         if(node.right != null) this._posOrder(node.right, listValues);
         if(node.key != null) listValues.push(node.key);
-       return listValues
+        return listValues;
     }
 
 
+    getLength() {
+        return this.length;
+    }
+
+    /**
+     * Returns whether the tree is empty or not
+     * @return {boolean} Whether the tree is empty.
+    */
+    isEmpty(){
+        return this.length > 0 ? false : true;
+    }
 }
 
 module.exports = BinaryTrie;

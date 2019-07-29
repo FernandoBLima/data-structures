@@ -1,4 +1,5 @@
 class Dictionary {
+
     constructor() {
         this.items = [];
         this.size = 0;
@@ -13,7 +14,7 @@ class Dictionary {
         return this.items[key] ? true : false;
     }
 
-     /**
+    /**
       * Return the size of the list 
       * @return {Number} 
     */
@@ -28,7 +29,7 @@ class Dictionary {
     */
     setItem(key, value){
         this.items[key] = value;
-        this.size += 1
+        this.size += 1;
     }
 
     /**
@@ -38,19 +39,19 @@ class Dictionary {
     */
     getItem(key){
         if(this.hasItem(key)){
-            return this.items[key]
+            return this.items[key];
         }
         return false;
     }
 
-     /**
+    /**
       * Return all the values from the list
       * @return {Array} listValues
     */
     getValues(){
         var listValues = [];
         for (var key in this.items) {
-            listValues.push(this.items[key])
+            listValues.push(this.items[key]);
         }
         return listValues;
     }
@@ -64,28 +65,20 @@ class Dictionary {
     }
 
     /**
-      * Return the entire list
-      * @return {Array} items
-    */
-    getlist(){
-        return this.items;
-    }
-
-    /**
       * Delete an item from the list
       * @param {String} key
       * @return {Boolean} 
     */
     deleteItem(key){
         if(this.items[key]){
-            delete this.items[key]
-            this.size -= 1
+            delete this.items[key];
+            this.size -= 1;
             return true;
         }
         return false;
     }
 
-     /**
+    /**
       * Sort the entire list by the keys
       * @return {Array} listSorted
     */

@@ -1,10 +1,10 @@
-const ClassSort = require('./classSort')
+const ClassSort = require('./classSort');
 
 
 class CocktailSort extends ClassSort{
 
     constructor() {
-        super()
+        super();
     }
 
     sort(){
@@ -18,7 +18,7 @@ class CocktailSort extends ClassSort{
                     swapped = true;
                     var temp = this.data[i]; 
                     this.data[i] = this.data[i + 1]; 
-                    this.data[i + 1] = temp
+                    this.data[i + 1] = temp;
                 }
             }
             if (!swapped) 
@@ -30,7 +30,7 @@ class CocktailSort extends ClassSort{
                     swapped = true;
                     var temp = this.data[j - 1]; 
                     this.data[j -  1] = this.data[j]; 
-                    this.data[j] = temp
+                    this.data[j] = temp;
                 }
             }
             start++;

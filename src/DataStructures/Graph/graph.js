@@ -24,6 +24,7 @@ class Graph {
     */
     addEdgeUndirected(vertex1, vertex2) { 
         this.adjacents[vertex1].push(vertex2); 
+        this.edges++;
         this.adjacents[vertex2].push(vertex1); 
         this.edges++;
     }
@@ -48,13 +49,13 @@ class Graph {
     isAdjacent(value1, value2){
         var vertice = this.vertices[value1];
         if(vertice != null){
-              var filtered = this.adjacents[vertice].find(function(element) {
-                  if(element === value2){
-                      return true;
-                  }
-              });
-              if(filtered) return true;
-              else return false
+            var filtered = this.adjacents[vertice].find(function(element) {
+                if(element === value2){
+                    return true;
+                }
+            });
+            if(filtered) return true;
+            else return false;
         }else{
             return false;
         }
@@ -86,7 +87,7 @@ class Graph {
      * Action get all vertices
      * @returns {Array}
     */
-   getVertex(){
+    getVertex(){
         return this.vertices;
     }
 
@@ -112,26 +113,26 @@ class Graph {
      *  moving on to the nodes at the next depth level.
     */
     depthFirstSearch() {
-       if(this.vertices.length === 0){
-           return;
-       }
-       this.marked = [];
-       for (var i = 0; i < this.vertices; ++i) { 
-           this.marked[i] = false;
-       }
-       this._depthFirstSearch(this.vertices[0]);
-    };
+        if(this.vertices.length === 0){
+            return;
+        }
+        this.marked = [];
+        for (var i = 0; i < this.vertices.length; ++i) { 
+            this.marked[i] = false;
+        }
+        this._depthFirstSearch(this.vertices[0]);
+    }
 
     _depthFirstSearch(vertex){
         this.marked[vertex] = true;
-        if(this.adjacents[vertex]){
-            console.log('Visited Vertex ', vertex)
-        }
+        // if(this.adjacents[vertex]){
+            console.log('Visited Vertex ', vertex);
+        // }
         var listAdjacents = this.adjacents[vertex];
         for (let index = 0; index < listAdjacents.length; index++) {
             const element = listAdjacents[index];
             if(!this.marked[element]){
-                this._depthFirstSearch(element)
+                this._depthFirstSearch(element);
             }
         }
     }
@@ -144,24 +145,24 @@ class Graph {
     breadthFirstSearch() {
         if(this.vertices.length === 0){
             return;
+        }else {
+            this.marked = [];
+            for (var i = 0; i < this.vertices.length; ++i) { 
+                this.marked[i] = false;
+            }
+            this._breadthFirstSearch(this.vertices[0]);
         }
-        this.marked = [];
-        for (var i = 0; i < this.vertices; ++i) { 
-            this.marked[i] = false;
-        }
-        this._breadthFirstSearch(this.vertices[0]);
-     };
+    }
 
-     _breadthFirstSearch(vertex){
-
+    _breadthFirstSearch(vertex){
         var queue = [];
         this.marked[vertex] = true;
-        queue.push(vertex)
+        queue.push(vertex);
         while(queue.length > 0){
             var u = queue.shift();
-            if(u != null){
+            // if(u != null){
                 console.log('Visited Vertex: ' + u);
-            }
+            // }
             var listAdjacents = this.adjacents[u];
             for (let index = 0; index < listAdjacents.length; index++) {
                 const element = listAdjacents[index];
@@ -174,16 +175,16 @@ class Graph {
         }
     }
 
-    /**
-     * Action to mark all vertex not visited
-     * @param {number} vertex
-     * @returns {Array}
-    */
-    _markAllNotVisited(){
-        for (var i = 0; i < this.vertices; ++i) { 
-            this.visited[i] = false;
-        }
-    }
+    // /**
+    //  * Action to mark all vertex not visited
+    //  * @param {number} vertex
+    //  * @returns {Array}
+    // */
+    // _markAllNotVisited(){
+    //     for (var i = 0; i < this.vertices; ++i) { 
+    //         this.visited[i] = false;
+    //     }
+    // }
 
     /**
      * Action to count all paths that exist in graph between two vertex
@@ -192,10 +193,10 @@ class Graph {
      * @returns {number}
     */
     countPaths(from, to){
-       var pathCount = 0;
-       var marked = [...this.visited];
-       pathCount = this._countPath(from, to, marked, pathCount);
-       return pathCount;
+        var pathCount = 0;
+        var marked = [...this.visited];
+        pathCount = this._countPath(from, to, marked, pathCount);
+        return pathCount;
     }
 
     _countPath(from, to, marked, pathCount){
@@ -222,9 +223,9 @@ class Graph {
      * @returns {number}
     */
     getPath(from, to){
-        if(!this.hasPath(to)){
-            return null;
-        }
+        // if(!this.hasPath(to)){
+        //     return null;
+        // }
         var path = [];
         for (var i = to; i != from; i = this.edgeTo[i]) { 
             path.push(i);
@@ -237,8 +238,21 @@ class Graph {
      * Action to verify if the vertex already was visited
      * @returns {boolean}
     */
-    hasPath(v) { 
-        return this.marked[v];
+    // hasPath(v) { 
+    //     return this.marked[v];
+    // }
+
+
+    getLength() {
+        return this.vertices.length;
+    }
+
+    /**
+     * Returns whether the tree is empty or not
+     * @return {boolean} Whether the tree is empty.
+    */
+    isEmpty(){
+        return this.vertices.length > 0 ? false : true;
     }
    
     /**
@@ -246,15 +260,20 @@ class Graph {
     */
     toString() {
         var str = ''; 
-        for (let i = 0; i < this.vertices.length; i++) {
-            str += this.vertices[i] + ' -> ';
-            var neighbors = this.getNeighbors(i); 
-            for (let j = 0; j < neighbors.length; j++) {
-                str += neighbors[j] + ' ';
+        if(this.vertices.length > 0) {
+            for (let i = 0; i < this.vertices.length; i++) {
+                str += this.vertices[i] + ' -> ';
+                var neighbors = this.getNeighbors(i); 
+                for (let j = 0; j < neighbors.length; j++) {
+                    str += neighbors[j] + ' ';
+                }
+                str += '\n';
             }
-            str += '\n';
+            console.log(str);
+        } else {
+            console.log('The Graph is empty');
+
         }
-        console.log(str)
     }
 
 }

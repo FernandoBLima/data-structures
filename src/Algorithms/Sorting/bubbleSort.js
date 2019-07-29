@@ -1,10 +1,10 @@
-const ClassSort = require('./classSort')
+const ClassSort = require('./classSort');
 
 
 class BubbleSort extends ClassSort{
 
     constructor() {
-        super()
+        super();
     }
 
     sort(){
@@ -13,14 +13,13 @@ class BubbleSort extends ClassSort{
                 if(this.data[j] > this.data[j + 1]){
                     var temp = this.data[j]; 
                     this.data[j] = this.data[j + 1]; 
-                    this.data[j + 1] = temp
+                    this.data[j + 1] = temp;
                 }
-                console.log(this.data)
+                // console.log(this.data)
             }
         }
         return this.data;
     }
-
 }
 
 

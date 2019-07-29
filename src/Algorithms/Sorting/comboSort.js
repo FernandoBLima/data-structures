@@ -1,10 +1,9 @@
-const ClassSort = require('./classSort')
-
+const ClassSort = require('./classSort');
 
 class ComboSort extends ClassSort{
 
     constructor() {
-        super()
+        super();
     }
 
     getGap(gap) 

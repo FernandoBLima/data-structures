@@ -12,12 +12,12 @@ class PriorityQueue {
         this.size = 0;
     } 
   
-  /**
-     * Add item to the priority queue.
-     * @param {number} value - item we're going to add to the queue.
-     * @param {number} priority - item priority.
-     * @return {PriorityQueue}
-   */
+    /**
+        * Add item to the priority queue.
+        * @param {number} value - item we're going to add to the queue.
+        * @param {number} priority - item priority.
+        * @return {PriorityQueue}
+    */
     enqueue(value, priority){
         var newNode = new Node(value, priority);
         var flag = false;
@@ -28,15 +28,15 @@ class PriorityQueue {
                 flag = true;
                 break;
             }
-        }
-
+        }     
+        
         if(!flag){
             this.list.push(newNode); 
         }
     }
 
     /**
-     * Action to remove first element of queue
+     * Action to remove first element of PriorityQueue
      * @return {Node}
    */
     dequeue(){ 
@@ -44,25 +44,30 @@ class PriorityQueue {
     } 
 
     /**
-     * Action to find first element in the queue
+     * Action to find first element in the PriorityQueue
      * @return {Node}
     */
     getFirstElement() { 
         if (this.isEmpty()) 
-            return "No elements in Queue"; 
-
-        return this.list[0]; 
+            return false; 
+        return this.list[0].element; 
     } 
 
     /**
-     * Action to verify  if the queue is empty. 
+     * Action to verify  if the PriorityQueue is empty. 
+     * @return {Boolean}
+    */
+    getLength() { 
+        return this.list.length; 
+    } 
+
+    /**
+     * Action to verify  if the PriorityQueue is empty. 
      * @return {Boolean}
     */
     isEmpty() { 
         return this.list.length == 0; 
     } 
-
-
 } 
 
 module.exports = PriorityQueue;
