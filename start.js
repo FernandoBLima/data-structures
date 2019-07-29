@@ -1,10 +1,10 @@
-const BubbleSort = require('./Algorithms/Sorting/bubbleSort')
-const SelectSort = require('./Algorithms/Sorting/selectSort')
-const InsertSort = require('./Algorithms/Sorting/insertSort')
-const QuickSort = require('./Algorithms/Sorting/quickSort')
-const ComboSort = require('./Algorithms/Sorting/comboSort')
-const BucketSort = require('./Algorithms/Sorting/bucketSort')
-const CocktailSort = require('./Algorithms/Sorting/cocktailSort')
+// const BubbleSort = require('./Algorithms/Sorting/bubbleSort');
+// const SelectSort = require('./Algorithms/Sorting/selectSort');
+// const InsertSort = require('./Algorithms/Sorting/insertSort');
+// const QuickSort = require('./Algorithms/Sorting/quickSort');
+// const ComboSort = require('./Algorithms/Sorting/comboSort');
+// const BucketSort = require('./Algorithms/Sorting/bucketSort');
+// const CocktailSort = require('./Algorithms/Sorting/cocktailSort');
 
 // const MergeSort = require('./Algorithms/Sorting/mergeSort')
 
@@ -14,7 +14,7 @@ const CocktailSort = require('./Algorithms/Sorting/cocktailSort')
 // ##################################
 // *           Combo Sort           *
 // ##################################
-const comboSort = new ComboSort();
+// const comboSort = new ComboSort();
 // comboSort.setData(10);
 // console.log(comboSort.data)
 // comboSort.sort();
@@ -24,7 +24,7 @@ const comboSort = new ComboSort();
 // ##################################
 // *           Bucket Sort          *
 // ##################################
-const bucketSort = new BucketSort();
+// const bucketSort = new BucketSort();
 // bucketSort.setData(10);
 // bucketSort.sort();
 // console.log(bucketSort.data)
@@ -33,7 +33,7 @@ const bucketSort = new BucketSort();
 // ##################################
 // *            Quick Sort          *
 // ##################################
-const quickSort = new QuickSort();
+// const quickSort = new QuickSort();
 // quickSort.setData(10);
 // quickSort.sort();
 // console.log(quickSort.data)
@@ -42,7 +42,7 @@ const quickSort = new QuickSort();
 // ##################################
 // *           Bubble Sort          *
 // ##################################
-const bubbleSort = new BubbleSort();
+// const bubbleSort = new BubbleSort();
 // bubbleSort.setData(10);
 // console.log(bubbleSort)
 // bubbleSort.sort();
@@ -52,7 +52,7 @@ const bubbleSort = new BubbleSort();
 // ##################################
 // *           Insert Sort          *
 // ##################################
-const insertSort = new InsertSort();
+// const insertSort = new InsertSort();
 // insertSort.setData(10);
 // console.log(insertSort)
 // insertSort.sort();
@@ -61,17 +61,17 @@ const insertSort = new InsertSort();
 // ##################################
 // *           Cocktail Sort           *
 // ##################################
-const cocktailSort = new CocktailSort();
-// cocktailSort.setData(10);
-cocktailSort.data = [5, 1, 4, 2, 8, 0, 2]
-console.log(cocktailSort.data)
-cocktailSort.sort();
-console.log(cocktailSort.data)
+// const cocktailSort = new CocktailSort();
+// // cocktailSort.setData(10);
+// cocktailSort.data = [5, 1, 4, 2, 8, 0, 2]
+// console.log(cocktailSort.data)
+// cocktailSort.sort();
+// console.log(cocktailSort.data)
 
 // ##################################
 // *           Select Sort          *
 // ##################################
-const selectSort = new SelectSort();
+// const selectSort = new SelectSort();
 // selectSort.setData(10);
 // console.log(selectSort)
 // selectSort.sort();

@@ -1,6 +1,7 @@
 # Data Structures and Algorithms in JavaScript
 
 [![Build Status](https://travis-ci.org/FernandoBLima/data-structures.svg?branch=dev)](https://travis-ci.org/FernandoBLima/data-structures)
+[![Coverage Status](https://coveralls.io/repos/github/FernandoBLima/data-structures/badge.svg?branch=integrate-coveralls)](https://coveralls.io/github/FernandoBLima/data-structures?branch=integrate-coveralls)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This repository is a collection about data structures implemented in JavaScript.
@@ -14,6 +15,8 @@ This repository is a collection about data structures implemented in JavaScript.
 	* Simply Linked List
 	* Doubly Linked List
 	* Circular Linked List
+* Queue 
+* Stack 
 * Heap 
 	* Max-Heap
 	* Min-Heap
