@@ -42,7 +42,7 @@ class SinglyLinkedList extends LinkedList {
             return false;
         }
     }
-
+ 
     /**
      * Action to remove an element from list
      * @param {number} value

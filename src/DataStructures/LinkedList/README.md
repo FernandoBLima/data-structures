@@ -13,7 +13,7 @@ Global data-struture object can be accessed after including `data-structure.js` 
 | getValues  | -          | [Array]   | Get list of values                 |
 | isEmpty    |    -       | {boolean} | Checks if the list is empty        |
 
-
+ 
 ## Extentions
 
 ### Singly Linked List
