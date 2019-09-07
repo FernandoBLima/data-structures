@@ -22,13 +22,13 @@ Can be accessed after including  `var  linkedList  =  new  lib.LinkedList();`
 
 #### Variables
 | Variable | Type | Description |  
-|--|--|--|-- | -- |
+|--        |--    | --          |
 | head | {Number} | Get the first element into the list | 
 | length | {Number} | Get the size list |
 
 #### Functions
 | Function | Parameters | Return | Description |  
-|--|--|--|-- | -- |
+|--        |  --        |--      |--           | 
 | addAtHead | {Number} | - | Add element to linkedList in the head|
 | removeAtHead| - | - | Remove the head element |
 | removeValue| {number} | - | Remove an element from list |
@@ -41,7 +41,7 @@ ____
 
 #### Variables
 | Variable | Type | Description |  
-|--|--|--|-- | -- |
+|--        |--    |--           |
 | head | {Number} | Get the first element into the list | 
 | tail | {Number} | Get the last element into the list |
 | length | {Number} | Get the size list |
