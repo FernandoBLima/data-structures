@@ -11,7 +11,7 @@ This repository is a collection about data structures implemented in JavaScript.
 
 * Dictionary - In Progress
 * HashTable  - In Progress
-* [Linked List](https://github.com/FernandoBLima/data-structures/blob/dev/src/DataStructures/LinkedList/linkedList.md)
+* [Linked List](https://github.com/FernandoBLima/data-structures/tree/dev/src/DataStructures/LinkedList)
 	* Simply Linked List
 	* Doubly Linked List
 	* Circular Linked List
