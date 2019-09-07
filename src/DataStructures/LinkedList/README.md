@@ -17,7 +17,7 @@ Global data-struture object can be accessed after including `data-structure.js` 
 ## Extentions
 
 ### Singly Linked List
-
+ 
 Can be accessed after including  `var  linkedList  =  new  lib.LinkedList();` 
 
 #### Variables

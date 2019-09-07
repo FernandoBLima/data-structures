@@ -74,7 +74,7 @@ console.timeEnd('someFunction');
 console.time('someFunction');
 singlyLinkedList.removeValue(1) // 3
 console.timeEnd('someFunction');
-
+ 
 // singlyLinkedList.addAtIndex(1,3) // 3
 // singlyLinkedList.removeValue(1) // 3
 
