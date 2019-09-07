@@ -50,7 +50,7 @@ Can be accessed after including  `var doublyLinkedList  =  new  lib.DoublyLinked
 
 #### Functions
 | Function | Parameters | Return | Description |  
-|--|--|--|-- | -- |
+|--        |--          |--      |--           | 
 | addAtHead | {number} | - | Add element into the list |
 | addAtTail | {number} | - | Add the value after the current tail |
 | removeAtHead | - | - | Remove the head element  |
@@ -67,7 +67,7 @@ Can be accessed after including  `var circularLinkedList = new  lib.CircularLink
 
 #### Variables
 | Variable | Type | Description |  
-|--|--|--|-- | -- |
+|--        |--    |--           |
 | head | {Number} | Get the first element into the list | 
 | tail | {Number} | Get the last element into the list |
 | length | {Number} | Get the size list |
@@ -75,7 +75,7 @@ Can be accessed after including  `var circularLinkedList = new  lib.CircularLink
 #### Functions
 
 | Function | Parameters | Return | Description |  
-|--|--|--|-- | -- |
+|--        |--          |--      |--           |
 | addAtHead | {number} | - | Add element into the linked |
 | addAtTail | {number} | - | Add the value after the current tail |
 | removeAtHead | - | - | Remove the head element |
