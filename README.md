@@ -9,36 +9,36 @@ This repository is a collection about data structures implemented in JavaScript.
 
 ## Data Structures
 
-* Dictionary 
-* HashTable 
-* Linked List 
+* Dictionary - In Progress
+* HashTable  - In Progress
+* [Linked List](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 	* Simply Linked List
 	* Doubly Linked List
 	* Circular Linked List
-* Queue 
-* Stack 
-* Heap 
+* Queue - In Progress
+* Stack - In Progress
+* Heap  - In Progress
 	* Max-Heap
 	* Min-Heap
 * Priority Queue 
 	* Priority Queue
 	* Priority Heap
-* Trie
-* Tree 
+* Trie - In Progress
+* Tree  - In Progress
 	* Binary Tree
 	* Avl Tree
-* Graph 
+* Graph  - In Progress
 	* Undirected Graph
 	* Directed Graph
 	* Breadth-First Search (BFS)
 	* Depth-First Search (DFS)
 	* Dijkstra's algorithm (To Do)
-* Disjoint Set 
+* Disjoint Set  - In Progress
 
 
 ## Algorithms
 
-* Sorting
+* Sorting - In Progress
 	* Bubble Sort
 	* Bucket Sort
 	* Combo Sort

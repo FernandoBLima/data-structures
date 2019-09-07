@@ -4,14 +4,14 @@ Global data-struture object, can be accessed after including  `data-structure.js
 
 #### Functions
 
-| Function | Parameters | Return | Description |  
-|--|--|--|-- | -- |
-| getHead | - | {Number} | Get the first element into the list|
-| search| {number} | {Boolean} | Search a list element |
-| getAtIndex| {number} | {Boolean} | Get element by index |
-| getLength| - | {number} | Get list size |
-| getValues| - | [Array] | Get list of values |
-| isEmpty| - | {boolean} | Checks if the list is empty |
+| Function   | Parameters | Return    | Description                        |  
+|----------  | --         | --        |  --                                | 
+| getHead    |  -         |{Number}   | Get the first element into the list|
+| search     | {number}   | {Boolean} | Search a list element              |
+| getAtIndex | {number}   | {Boolean} | Get element by index               |
+| getLength  | -          | {number}  | Get list size                      |
+| getValues  | -          | [Array]   | Get list of values                 |
+| isEmpty    |    -       | {boolean} | Checks if the list is empty        |
 
 
 ## Extentions
