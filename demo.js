@@ -1,4 +1,4 @@
-const lib = require('./index');
+const lib = require('./data-structure');
 
 
 
@@ -56,8 +56,25 @@ var doublyLinkedList = new lib.DoublyLinkedList();
 // *       Singly Linked List       *
 // **********************************
 var singlyLinkedList = new lib.SinglyLinkedList();
+console.time('someFunction');
+singlyLinkedList.removeValue(1) // 3
+console.timeEnd('someFunction');
+console.time('someFunction');
+singlyLinkedList.removeValue(1) // 3
+console.timeEnd('someFunction');
+console.time('someFunction');
+singlyLinkedList.removeValue(1) // 3
+console.timeEnd('someFunction');
+console.time('someFunction');
+singlyLinkedList.removeValue(1) // 3
+console.timeEnd('someFunction');
+console.time('someFunction');
+singlyLinkedList.removeValue(1) // 3
+console.timeEnd('someFunction');
+console.time('someFunction');
+singlyLinkedList.removeValue(1) // 3
+console.timeEnd('someFunction');
 
-// singlyLinkedList.removeAtHead() // 3
 // singlyLinkedList.addAtIndex(1,3) // 3
 // singlyLinkedList.removeValue(1) // 3
 
@@ -71,6 +88,11 @@ var singlyLinkedList = new lib.SinglyLinkedList();
 // singlyLinkedList.addAtIndex(0,1) // 3
 
 // console.log(singlyLinkedList.search(24))
+
+// console.log(singlyLinkedList.head)
+// console.log(singlyLinkedList.length)
+// console.log(singlyLinkedList.value)
+
 // console.log(singlyLinkedList.getValues())
 // console.log(singlyLinkedList.removeValue(7))
 // console.log(singlyLinkedList.removeValue(0))
@@ -343,20 +365,20 @@ var graph = new lib.Graph();
 // *           Disjoint Set         *
 // ##################################
 var disjoinSet = new lib.DisjoinSet();
-disjoinSet.init(5);
-disjoinSet.union(0,1);
-disjoinSet.union(2,3);
-disjoinSet.union(3,4);
-disjoinSet.union(1,4);
+// disjoinSet.init(5);
+// disjoinSet.union(0,1);
+// disjoinSet.union(2,3);
+// disjoinSet.union(3,4);
+// disjoinSet.union(1,4);
 
-console.log(disjoinSet.extractSets());
-console.log('pppppp', disjoinSet.find(4));
+// console.log(disjoinSet.extractSets());
+// console.log('pppppp', disjoinSet.find(4));
 
 // console.log(disjoinSet.getChildrenByItem(0));
 // console.log('dddd', disjoinSet.findRoot(4));
 // console.log(disjoinSet.getSizeSet(3));
 // console.log(disjoinSet.isConnected(0,1));
-console.log(disjoinSet.list);
+// console.log(disjoinSet.list);
 
 
 // ##################################

@@ -1,7 +1,7 @@
 class LinkedList {
 
     /**
-     * Action to get the last element 
+     * Action to get the first element 
      * @return {Number}
     */
     getHead(){
@@ -68,7 +68,7 @@ class LinkedList {
     }
 
     /**
-     * Action to get list size
+     * Action to get list of values 
      * @return [Array]
     */
     getValues(){

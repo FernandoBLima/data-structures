@@ -179,8 +179,6 @@ class AvlTree extends BinaryTrie {
       return node.height;
   }
 
-
-
   remove(value){
     if(value == null){
       return;
