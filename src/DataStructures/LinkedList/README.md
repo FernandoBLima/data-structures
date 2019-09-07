@@ -1,6 +1,6 @@
 ## Linked List
 
-Global data-struture object, can be accessed after including  `data-structure.js`  in script tag or through  `const  lib  =  require('./data-structure');`.
+Global data-struture object can be accessed after including `data-structure.js` in script tag or through `const  lib  =  require('./data-structure');`.
 
 #### Functions
 
