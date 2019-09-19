@@ -15,8 +15,8 @@ This repository is a collection about data structures implemented in JavaScript.
 	* Simply Linked List
 	* Doubly Linked List
 	* Circular Linked List
-* [Queue](https://github.com/FernandoBLima/data-structures/blob/dev/src/DataStructures/Queue/queue.md)
-* [Stack](https://github.com/FernandoBLima/data-structures/blob/dev/src/DataStructures/Stack/stack.md)
+* [Queue](https://github.com/FernandoBLima/data-structures/blob/dev/src/DataStructures/Queue)
+* [Stack](https://github.com/FernandoBLima/data-structures/blob/dev/src/DataStructures/Stack)
 * Heap  - In Progress
 	* Max-Heap
 	* Min-Heap
