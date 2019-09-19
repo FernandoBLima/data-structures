@@ -27,6 +27,9 @@ const Dictionary = require('./src/DataStructures/Dictionary/dictionary');
 const DisjoinSet = require('./src/DataStructures/DisjointSet/disjointSet');
 
 
+const SetStructure = require('./src/DataStructures/Set/set');
+
+
 module.exports = {
     Dictionary : Dictionary,
     HashTable : HashTable,
@@ -44,5 +47,7 @@ module.exports = {
     Trie : Trie,
     BinaryTree : BinaryTree,
     NodeTree : NodeTree,
-    Graph : Graph
+    Graph : Graph,
+    Set : SetStructure
+
 };

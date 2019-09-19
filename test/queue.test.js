@@ -7,12 +7,14 @@ describe('Queue', () => {
         expect(queue.getLength()).toBe(0);
         expect(queue.isEmpty()).toBe(true);
         expect(queue.dequeue()).toBe(false);
+        expect(queue.peek()).toBe(false);
         done();
     });
 
     test('should create the first element in queue', () => {
         queue.enqueue(1);
         expect(queue.getLength()).toBe(1);
+        expect(queue.peek()).toBe(1);
         expect(queue.isEmpty()).toBe(false);
     });
 

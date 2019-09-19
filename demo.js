@@ -56,36 +56,39 @@ var doublyLinkedList = new lib.DoublyLinkedList();
 // *       Singly Linked List       *
 // **********************************
 var singlyLinkedList = new lib.SinglyLinkedList();
-console.time('someFunction');
-singlyLinkedList.removeValue(1) // 3
-console.timeEnd('someFunction');
-console.time('someFunction');
-singlyLinkedList.removeValue(1) // 3
-console.timeEnd('someFunction');
-console.time('someFunction');
-singlyLinkedList.removeValue(1) // 3
-console.timeEnd('someFunction');
-console.time('someFunction');
-singlyLinkedList.removeValue(1) // 3
-console.timeEnd('someFunction');
-console.time('someFunction');
-singlyLinkedList.removeValue(1) // 3
-console.timeEnd('someFunction');
-console.time('someFunction');
-singlyLinkedList.removeValue(1) // 3
-console.timeEnd('someFunction');
+// // console.time('someFunction');
+// // singlyLinkedList.removeValue(1) // 3
+// // console.timeEnd('someFunction');
  
-// singlyLinkedList.addAtIndex(1,3) // 3
-// singlyLinkedList.removeValue(1) // 3
+// // singlyLinkedList.addAtIndex(1,3) // 3
+// // singlyLinkedList.removeValue(1) // 3
 
-// singlyLinkedList.addAtHead(7) // 3
-// singlyLinkedList.addAtHead(6) // 3
-// singlyLinkedList.addAtHead(5) // 3
-// singlyLinkedList.addAtHead(4) // 3
+// console.log(singlyLinkedList.addAtHead(1))// 3
+// console.log(singlyLinkedList.addAtHead(2))// 3
 // singlyLinkedList.addAtHead(3) // 3
-// singlyLinkedList.addAtHead(2) // 3
-// singlyLinkedList.addAtHead(1) // 3
-// singlyLinkedList.addAtIndex(0,1) // 3
+// singlyLinkedList.addAtHead(4) // 3
+// singlyLinkedList.addAtHead(5) // 3
+// singlyLinkedList.addAtHead(6) // 3
+// singlyLinkedList.addAtHead(7) // 3
+// singlyLinkedList.addAtHead(8) // 3
+// singlyLinkedList.addAtHead(9) // 3
+// // singlyLinkedList.addAtIndex(0,1) // 3
+
+// console.time('someFunction 1');
+// console.log(singlyLinkedList.search(1))// 3
+// console.timeEnd('someFunction 1');
+// console.time('someFunction 5');
+// console.log(singlyLinkedList.search(5))// 3
+// console.timeEnd('someFunction 5');
+// console.time('someFunction 7');
+// console.log(singlyLinkedList.search(7))// 3
+// console.timeEnd('someFunction 7');
+// console.time('someFunction 9');
+// console.log(singlyLinkedList.search(9))// 3
+// console.timeEnd('someFunction 9');
+// console.time('someFunction 1');
+// console.log(singlyLinkedList.search(1))// 3
+// console.timeEnd('someFunction 1');
 
 // console.log(singlyLinkedList.search(24))
 
@@ -113,12 +116,21 @@ console.timeEnd('someFunction');
 // **********************************
 var linkedList = new lib.LinkedList();
 // console.log(linkedList)
+
+
+
 // linkedList.addAtHead(3) // 3
 // linkedList.addAtHead(6) // 6 - 3
 // linkedList.addAtHead(4) // 4 - 6 - 3
 // linkedList.addAtHead(44) // 44 - 4 - 6 - 3
 // linkedList.addAtHead(24) // 24 - 44 - 4 - 6 - 3
 // linkedList.addAtHead(84) // 84 - 24 - 44 - 4 - 6 - 3
+
+// console.time("Time this");
+// linkedList.search(4) // Number exist!
+// console.timeEnd("Time this");
+
+
 // linkedList.removeAtHead() // 24 - 44 - 4 - 6 - 3
 // linkedList.search(4) // Number exist!
 // linkedList.search(45) // Number does not exist!
@@ -144,7 +156,6 @@ var queue = new lib.Queue();
 // queue.enqueue(6); // 4 - 5 - 6 
 // queue.dequeue(); // 5 - 6 
 
-
 // ##################################
 // *           Stack                *
 // ##################################
@@ -166,7 +177,9 @@ var heapMin = new lib.HeapMin();
 // heapMin.removeFromTop();
 
 // heapMin.build_heap([3,10,11,5,15,17, 13, 12, 14, 8, 21]); // 3, 5, 11, 10, 8, 17, 13, 12, 11, 15, 21
-// heapMin.getSize() // 11
+// console.log(heapMin.getSize()) // 11
+
+
 // heapMin.removeFromTop(); //5, 8, 11, 10, 15, 17, 13, 12, 14, 21
 // heapMin.remove(10); // 5, 8, 11, 12, 15, 17, 13, 21, 14
 // console.log(heapMin.displayHeap()) // 11
@@ -385,20 +398,21 @@ var disjoinSet = new lib.DisjoinSet();
 // *           Dictionary           *
 // ##################################
 var dictionary = new lib.Dictionary();
-// dictionary.setItem('key 1', 1);
-// dictionary.setItem('key 2', 2);
-// console.log(dictionary.deleteItem('key 2'));
-// dictionary.setItem('key 6', 6);
-// dictionary.setItem('key 5', 5);
-// dictionary.setItem('key 4', 4);
-// dictionary.setItem('key 3', 3);
+dictionary.setItem('key 1', 1);
+dictionary.setItem('key 2', 2);
+dictionary.setItem('key 6', 6);
+dictionary.setItem('key 5', 5);
+dictionary.setItem('key 4', 4);
+dictionary.setItem('key 3', 3);
+
+console.log(dictionary.containKey('key 3'));
+console.log(dictionary.containValue('3'));
 
 // console.log(dictionary.hasItem('key 1'));
 // console.log(dictionary.getItem('key 1'));
 // console.log(dictionary.getValues());
-// console.log(dictionary.getKeys());
+console.log(dictionary.getKeys());
 // console.log(dictionary.sort());
-// console.log(dictionary.getlist());
 
 
 // ##################################
@@ -409,3 +423,28 @@ var hashTable = new lib.HashTable();
 // hashTable.insert('value 2', 'key2');
 // console.log(hashTable.get('key2'));
 // console.log(hashTable);
+
+
+// ##################################
+// *            Set           *
+// ##################################
+var set = new lib.Set();
+// set.insert(1);
+// set.insert(2);
+// set.insert(4);
+// set.cleanSet()
+
+// var set2 = new lib.Set();
+// set2.insert(1);
+// set2.insert(2);
+// set2.insert(3);
+
+// console.log(set)
+// console.log(set2)
+// set.retainAll(set2)
+// console.log(set)
+// console.log(set2)
+
+// var set3 = set2.difference(set);
+// console.log(set3.getLength())
+// set3.getLength(); // => 1 2 3 4

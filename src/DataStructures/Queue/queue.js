@@ -1,10 +1,18 @@
 const LinkedList = require('../LinkedList/linkedList');
 const Node = require('../LinkedList/node');
 
-class Queue extends LinkedList{
+class Queue extends LinkedList {
     constructor() {
         super();
         this.length = 0;
+    }
+
+    /**
+     * Action to get the first element 
+     * @return {Number}
+    */
+    peek(){
+        return this.head != null ? this.head.value : false;
     }
 
     /**

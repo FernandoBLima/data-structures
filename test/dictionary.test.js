@@ -1,7 +1,4 @@
 
-// var chai = require('chai'),
-    // expect = chai.expect,
-    // should = chai.should();
 
     const Dictionary = require('../src/DataStructures/Dictionary/dictionary');
 
@@ -10,19 +7,26 @@
         
         test('should get dictionary empty', (done) => {
             expect(dictionary.getSize()).toBe(0);
+            expect(dictionary.isEmpty()).toBe(true);
+            expect(dictionary.containValue(1)).toBe(false);
+            expect(dictionary.containKey('key 1')).toBe(false);
             expect(dictionary.getItem('key 1')).toBe(false);
-
             done();
         });
 
         test('should create the first element in dictionary', () => {
             dictionary.setItem('key 1', 1);
+            expect(dictionary.isEmpty()).toBe(false);
+            expect(dictionary.containValue(1)).toBe(true);
+            expect(dictionary.containKey('key 1')).toBe(true);
             expect(dictionary.getSize()).toBe(1);
         });
 
         test('should create and delete the new element in dictionary', () => {
             dictionary.setItem('key 2', 2);
             expect(dictionary.getSize()).toBe(2);
+            expect(dictionary.containValue(2)).toBe(true);
+            expect(dictionary.containKey('key 2')).toBe(true);
             dictionary.deleteItem('key 2');
             expect(dictionary.getSize()).toBe(1);
         });
@@ -62,6 +66,10 @@
 
         test('should not delete an item that not exist', () => {
             expect(dictionary.deleteItem('key 13')).toBe(false);
+        });
+
+        test('should not delete an item that not exist', () => {
+            expect(dictionary.clear()).toBe();
         });
 
         

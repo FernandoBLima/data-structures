@@ -8,7 +8,7 @@ class Stack extends LinkedList{
     }
       
     /**
-     * Action to add elemnent in the tail (a.k.a. addFAtTail)
+     * Action to add elemnent in the tail (a.k.a. addAtTail)
      * @param {number} value
      */
     push(value){

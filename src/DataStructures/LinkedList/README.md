@@ -5,7 +5,7 @@ Global data-struture object can be accessed after including `data-structure.js` 
 #### Functions
 
 | Function   | Parameters | Return    | Description                        |  
-|----------  | --         | --        |  --                                | 
+|   --       | --         | --        |  --                                | 
 | getHead    |  -         |{Number}   | Get the first element into the list|
 | search     | {number}   | {Boolean} | Search a list element              |
 | getAtIndex | {number}   | {Boolean} | Get element by index               |
@@ -21,19 +21,19 @@ Global data-struture object can be accessed after including `data-structure.js` 
 Can be accessed after including  `var  linkedList  =  new  lib.LinkedList();` 
 
 #### Variables
-| Variable | Type | Description |  
-|--        |--    | --          |
-| head | {Number} | Get the first element into the list | 
-| length | {Number} | Get the size list |
+|   Variabl  | Type     | Description                         |  
+|   --       |  --      | --                                  |
+|   head     | {Number} | Get the first element into the list | 
+|   length   | {Number} | Get the size list                   |
 
 #### Functions
-| Function | Parameters | Return | Description |  
-|--        |  --        |--      |--           | 
-| addAtHead | {Number} | - | Add element to linkedList in the head|
-| removeAtHead| - | - | Remove the head element |
-| removeValue| {number} | - | Remove an element from list |
-| reverse | - | - | Get reverse list |
-| addAtIndex | {number}, {number} | {number} | Insert an element by index |
+| Function     | Parameters         |   Return  |   Description                         |  
+|   --         |  --                |   --      | --                                    | 
+| addAtHead    | {Number}           |   -       | Add element to linkedList in the head |
+| removeAtHead | -                  |  -        | Remove the head element               |
+| removeValue  |  {number}          |   -       | Remove an element from list           |
+| reverse      | -                  | -         | Get reverse list                      |
+| addAtIndex   | {number}, {number} | {number}  | Insert an element by index            |
 
 ____
 
