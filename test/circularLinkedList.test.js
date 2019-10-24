@@ -3,16 +3,21 @@ const CircularLinkedList = require('../src/DataStructures/LinkedList/circularLin
 describe('Circular Linked List', () => {
     const circularLinkedList = new CircularLinkedList();
     
-    test('all test with empty', (done) => {
+    test('should test all empty list scenarios', (done) => {
         expect(circularLinkedList.getLength()).toBe(0);
         expect(circularLinkedList.isEmpty()).toBe(true);
         expect(circularLinkedList.removeAtHead()).toBe(false);
         expect(circularLinkedList.removeAtTail()).toBe(false);
+        expect(circularLinkedList.search()).toBe(false);
         expect(circularLinkedList.search(1)).toBe(false);
         expect(circularLinkedList.addAtIndex(1, 3)).toBe(false);
         expect(circularLinkedList.removeValue(1)).toBe(false);
         expect(circularLinkedList.search(1)).toBe(false);
         expect(circularLinkedList.getAtIndex(4)).toBe(false);
+        expect(circularLinkedList.getAtIndex()).toBe(false);
+        expect(circularLinkedList.addAtHead()).toBe();
+        expect(circularLinkedList.addAtTail()).toBe();
+        expect(circularLinkedList.addAtIndex(null, null)).toBe();
         done();
     });
 
@@ -23,6 +28,8 @@ describe('Circular Linked List', () => {
         expect(circularLinkedList.search(1)).toBe(true);
         expect(circularLinkedList.getHead()).toBe(1);
         expect(circularLinkedList.getAtIndex(0)).toBe(1);
+        expect(circularLinkedList.getValues()).toEqual([1]);
+
         done();
     });
     
@@ -45,6 +52,8 @@ describe('Circular Linked List', () => {
         expect(circularLinkedList.addAtTail(1)).toBe();
         expect(circularLinkedList.addAtTail(2)).toBe();
         expect(circularLinkedList.addAtTail(3)).toBe();
+        expect(circularLinkedList.getValues()).toEqual([1,2,3]);
+
         expect(circularLinkedList.removeValue(3)).toBe(true);
         expect(circularLinkedList.removeValue(2)).toBe(true);
         expect(circularLinkedList.removeValue(1)).toBe(true);
@@ -70,13 +79,12 @@ describe('Circular Linked List', () => {
         circularLinkedList.addAtHead(44); // 44 - 4 - 6 - 3
         circularLinkedList.addAtHead(24); // 24 - 44 - 4 - 6 - 3
         circularLinkedList.addAtHead(84); // 84 - 24 - 44 - 4 - 6 - 3
-        // expect(circularLinkedList.getValues()).toEqual([ 84, 24, 44, 4, 6, 3]);
         expect(circularLinkedList.getLength()).toBe(6);
         expect(circularLinkedList.isEmpty()).toBe(false);
         done();
     });
 
-    test('should test all search scenarios', (done) => {
+    test('should search by index', (done) => {
         expect(circularLinkedList.search(4)).toBe(true);
         expect(circularLinkedList.search(84)).toBe(true);
         expect(circularLinkedList.search(3)).toBe(true);
@@ -84,7 +92,7 @@ describe('Circular Linked List', () => {
         done();
     });
 
-    test('should test get by index scenarios', (done) => {
+    test('should get by index', (done) => {
         expect(circularLinkedList.getAtIndex(2)).toBe(44);
         expect(circularLinkedList.getAtIndex(0)).toBe(84);
         expect(circularLinkedList.getAtIndex(3)).toBe(4);
@@ -102,7 +110,6 @@ describe('Circular Linked List', () => {
     test('should test all removeValues scenarios ', (done) => {
         expect(circularLinkedList.removeValue(77)).toBe(false);
         expect(circularLinkedList.removeValue(2)).toBe(true);
-        console.log(this.tail)
         expect(circularLinkedList.removeValue(24)).toBe(true);
         expect(circularLinkedList.removeValue(6)).toBe(true);
         done();
@@ -115,22 +122,6 @@ describe('Circular Linked List', () => {
         expect(circularLinkedList.getHead()).toBe(23);
         done();
     });
-
-    // test('should add values and remove at tail', (done) => {
-    //     expect(circularLinkedList.addAtTail(33)).toBe();// 44, 4, 6, 1, 33
-    //     expect(circularLinkedList.addAtTail(55)).toBe();// 44, 4, 6, 1, 33 , 55
-    //     expect(circularLinkedList.getLength()).toBe(6);
-    //     expect(circularLinkedList.addAtIndex(66, 5)).toBe(true);
-    //     expect(circularLinkedList.addAtIndex(77, 6)).toBe(true);
-    //     expect(circularLinkedList.getLength()).toBe(8);
-    //     expect(circularLinkedList.removeAtTail()).toBe();
-    //     expect(circularLinkedList.getLength()).toBe(7);
-    //     expect(circularLinkedList.removeValue(6)).toBe(true);
-    //     expect(circularLinkedList.addAtIndex(6,130)).toBe(false);
-    //     expect(circularLinkedList.isEmpty()).toBe(false);
-    //     done();
-    // });
-
 
 
 });

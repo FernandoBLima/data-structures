@@ -14,6 +14,9 @@ class LinkedList {
      * @return {Boolean} 
     */
     search(value){
+        if(value == null){
+            return false;
+        }
         if(this.head){
             var node = this.head;
             var count = 0;
@@ -43,6 +46,9 @@ class LinkedList {
      * @return {Boolean} 
     */
     getAtIndex(index){
+        if(index == null){
+            return false;
+        }
         if(this.head){
             var currentIndex = 0;
             var node = this.head;

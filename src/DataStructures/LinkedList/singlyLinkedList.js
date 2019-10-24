@@ -19,6 +19,9 @@ class SinglyLinkedList extends LinkedList {
      * @param {number} value
     */
     addAtHead(value){
+        if(value == null){
+            return;
+        }
         var newNode;
         if(this.head){
             newNode = new Node(value, this.head, null );
@@ -94,6 +97,9 @@ class SinglyLinkedList extends LinkedList {
      * @param {number} index
      */
     addAtIndex(value, index){
+        if(value == null || index == null){
+            return;
+        }
         if(this.head){
             var currentIndex = 1;
             var thisNode = this.head;

@@ -21,6 +21,9 @@ class CircularLinkedList extends LinkedList {
      * @param {number} value
      */
     addAtHead(value){
+        if(value == null){
+            return;
+        }
         if(this.head){
             var newNode = new Node(value, this.head, null );
             this.head.prev = newNode;
@@ -40,6 +43,10 @@ class CircularLinkedList extends LinkedList {
      * @param {number} value
      */
     addAtTail(value){
+        if(value == null){
+            return;
+        }
+
         var newNode = new Node(value, null, this.tail);
         if(this.tail){
             this.tail.next = newNode;
@@ -134,6 +141,9 @@ class CircularLinkedList extends LinkedList {
      * @param {number} index
      */
     addAtIndex(value, index){
+        if(value == null){
+            return;
+        }
         if(index > this.length) return false;
         if(index === 0) {
             this.addAtHead(value);
@@ -141,7 +151,6 @@ class CircularLinkedList extends LinkedList {
         } 
 
         var currentIndex = 0;
-
         var currentNode = this.head;
         let previousNode = null;
 
@@ -160,6 +169,23 @@ class CircularLinkedList extends LinkedList {
         this.length++;
         return true;
     }
+
+
+    /**
+     * Action to get list of values 
+     * @return [Array]
+    */
+   getValues(){
+    var listValues = [];
+    var node = this.head;
+    var i = 0;
+    while(node != null && i < this.length){
+        listValues.push(node.value);
+        node = node.next;
+        i++;
+    }   
+    return listValues;
+}
 
 }
 

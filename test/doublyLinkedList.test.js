@@ -14,6 +14,9 @@ describe('Doubly Linked List', () => {
         expect(doublyLinkedList.reverse()).toBe();
         expect(doublyLinkedList.search(1)).toBe(false);
         expect(doublyLinkedList.getAtIndex(4)).toBe(false);
+        expect(doublyLinkedList.addAtHead()).toBe();
+        expect(doublyLinkedList.addAtTail()).toBe();
+        expect(doublyLinkedList.addAtIndex(null, null)).toBe();
         done();
     });
 

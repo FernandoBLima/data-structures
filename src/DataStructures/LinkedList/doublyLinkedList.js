@@ -22,6 +22,9 @@ class DoublyLinkedList extends LinkedList {
      * @param {number} value
     */
     addAtHead(value){
+        if(value == null){
+            return;
+        }
         if(this.head){
             var newNode = new Node(value, this.head, null );
             this.head.prev = newNode;
@@ -39,6 +42,9 @@ class DoublyLinkedList extends LinkedList {
      * @param {number} value
     */
     addAtTail(value){
+        if(value == null){
+            return;
+        }
         var newNode = new Node(value, null, this.tail);
         if(this.tail){
             this.tail.next = newNode;
@@ -144,6 +150,9 @@ class DoublyLinkedList extends LinkedList {
      * @param {number} index
      */
     addAtIndex(value, index){
+        if(value == null || index == null){
+            return;
+        }
         if(index > this.length){
             return false;
         }

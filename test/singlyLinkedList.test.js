@@ -13,6 +13,9 @@ describe('Singly Linked List', () => {
         expect(singlyLinkedList.removeValue(1)).toBe(false);
         expect(singlyLinkedList.reverse()).toBe();
         expect(singlyLinkedList.getAtIndex(4)).toBe(false);
+        expect(singlyLinkedList.addAtHead()).toBe();
+        expect(singlyLinkedList.addAtIndex(null, null)).toBe();
+
         done();
     });
 
