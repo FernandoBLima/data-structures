@@ -1,4 +1,4 @@
-const HashTable = require('./hashTasble');
+const HashTable = require('./hashTable');
 const IndexHash = require('./indexHash');
 
 class HashTableChain extends HashTable {
