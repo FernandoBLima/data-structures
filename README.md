@@ -9,8 +9,13 @@ This repository is a collection about data structures implemented in JavaScript.
 
 ## Data Structures
 
-* Dictionary - In Progress
-* HashTable  - In Progress
+* [Dictionary](https://github.com/FernandoBLima/data-structures/tree/dev/src/DataStructures/Dictionary)
+* [HashTable](https://github.com/FernandoBLima/data-structures/tree/dev/src/DataStructures/HashTable)
+	* Dump Hash Table
+	* Separate chaining
+	* Linear Proibing
+	* Quadratic Proibing
+    * Double Hash Table
 * [Linked List](https://github.com/FernandoBLima/data-structures/tree/dev/src/DataStructures/LinkedList)
 	* Simply Linked List
 	* Doubly Linked List
@@ -27,13 +32,15 @@ This repository is a collection about data structures implemented in JavaScript.
 * Tree  - In Progress
 	* Binary Tree
 	* Avl Tree
-* Graph  - In Progress
+* Graph - In Progress
 	* Undirected Graph
 	* Directed Graph
 	* Breadth-First Search (BFS)
 	* Depth-First Search (DFS)
 	* Dijkstra's algorithm (To Do)
 * Disjoint Set  - In Progress
+* Set - In Progress
+	* Multi-Sets
 
 
 ## Algorithms

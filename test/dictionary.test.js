@@ -10,7 +10,7 @@
             expect(dictionary.isEmpty()).toBe(true);
             expect(dictionary.containValue(1)).toBe(false);
             expect(dictionary.containKey('key 1')).toBe(false);
-            expect(dictionary.getItem('key 1')).toBe(false);
+            expect(dictionary.getItem('key 1')).toBe(null);
             done();
         });
 
@@ -71,7 +71,5 @@
         test('should not delete an item that not exist', () => {
             expect(dictionary.clear()).toBe();
         });
-
-        
 
     });

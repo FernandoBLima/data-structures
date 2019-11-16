@@ -12,7 +12,11 @@ const PriorityHeap = require('./src/DataStructures/PriorityQueue/priorityHeap');
 const HeapMin = require('./src/DataStructures/Heap/heapMin');
 const HeapMax = require('./src/DataStructures/Heap/heapMax');
 
-const HashTable = require('./src/DataStructures/HashTable/hashTable');
+const DumpHashTable = require('./src/DataStructures/HashTable/dump_hashTable');
+const HashTableChain = require('./src/DataStructures/HashTable/chain_hashTable');
+const HashTableLinearProibing = require('./src/DataStructures/HashTable/linear_proibing_hashTable');
+const HashTableQuadraticProibing = require('./src/DataStructures/HashTable/quadratic_proibing_hashtable');
+const HashTableDouble = require('./src/DataStructures/HashTable/double_hashTable');
 
 const Trie = require('./src/DataStructures/Trie/trie');
 
@@ -26,13 +30,12 @@ const Graph = require('./src/DataStructures/Graph/graph');
 const Dictionary = require('./src/DataStructures/Dictionary/dictionary');
 const DisjoinSet = require('./src/DataStructures/DisjointSet/disjointSet');
 
-
 const SetStructure = require('./src/DataStructures/Set/set');
+const MultiSets = require('./src/DataStructures/Set/multiSets');
 
 
 module.exports = {
     Dictionary : Dictionary,
-    HashTable : HashTable,
     DisjoinSet: DisjoinSet,
     LinkedList : LinkedList,
     SinglyLinkedList : SinglyLinkedList,
@@ -48,6 +51,11 @@ module.exports = {
     BinaryTree : BinaryTree,
     NodeTree : NodeTree,
     Graph : Graph,
-    Set : SetStructure
-
+    Set : SetStructure,
+    MultiSets : MultiSets,
+    DumpHashTable : DumpHashTable,
+    HashTableChain : HashTableChain,
+    HashTableLinearProibing : HashTableLinearProibing,
+    HashTableQuadraticProibing: HashTableQuadraticProibing,
+    HashTableDouble: HashTableDouble
 };

@@ -1,31 +1,38 @@
+const ARRAY_LENGTH = null;
+const MOD_VALUE = null;
+
 class HashTable {
 
-    constructor() {
-        this.list = {};
-        this.length = 0;
+    setArraySize(value){
+        this.ARRAY_LENGTH = value;
+        this.list = Array(this.ARRAY_LENGTH);
     }
 
-    hash(data){
+    setModValue(value){
+        this.MOD_VALUE = value;
+    }
+
+    /**
+     * Should convert a key in an integer
+     * @param {any} key 
+     * @return {Number}
+     */
+    _hash(data){
         var hashTable = 0;
-        for(var i = 0; i < data.length; i++){
-            hashTable += data.charCodeAt(i);
+        if(typeof data === 'string'){
+            for(var i = 0; i < data.length; i++){
+                hashTable += data.charCodeAt(i);
+            }
+        }else{
+            hashTable = data;
         }
-        return (hashTable) - (45);
+        return (hashTable) % this.MOD_VALUE;
     }
 
-    insert(value, key) {
-        var position = this.hash(key); 
-        this.list[position] = value; 
-        this.length++;
-    }
-
-    get(key) {
-        if(this.length > 0 && key){
-            return this.list[this.hash(key)];
-        }
-        return false;
-    }
-
+    /**
+     * Return the size of the list 
+     * @return {Number} 
+     */
     getLength() {
         return this.length;
     }
@@ -38,15 +45,7 @@ class HashTable {
         return this.length > 0 ? false : true;
     }
 
-    remove(key){
-        if(this.length > 0 && key){
-            this.list[this.hash(key)] = null;
-            this.length--;
-        }
-    }
-
 
 }
-
 
 module.exports = HashTable;
