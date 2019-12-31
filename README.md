@@ -39,7 +39,7 @@ This repository is a collection about data structures implemented in JavaScript.
 	* Depth-First Search (DFS)
 	* Dijkstra's algorithm (To Do)
 * Disjoint Set  - In Progress
-* Set - In Progress
+* [Set](https://github.com/FernandoBLima/data-structures/blob/dev/src/DataStructures/Set)
 	* Multi-Sets
 
 
