@@ -6,7 +6,6 @@
 
 This repository is a collection about data structures implemented in JavaScript.
 
-
 ## Data Structures
 
 * [Dictionary](https://github.com/FernandoBLima/data-structures/tree/dev/src/DataStructures/Dictionary)
@@ -38,7 +37,11 @@ This repository is a collection about data structures implemented in JavaScript.
 	* Breadth-First Search (BFS)
 	* Depth-First Search (DFS)
 	* Dijkstra's algorithm (To Do)
-* Disjoint Set  - In Progress
+* [Disjoint Set](https://github.com/FernandoBLima/data-structures/blob/dev/src/DataStructures/DisjointSet)
+	* Union function
+	* Union by size function
+	* Union by rank function
+	* Path Compression function
 * [Set](https://github.com/FernandoBLima/data-structures/blob/dev/src/DataStructures/Set)
 	* Multi-Sets
 
