@@ -39,17 +39,14 @@ class BinarySearchTree {
                     this._insertNode(currentNode.right, value);
                 }
             }
-            currentNode.height = 1 + this.maxHeight(this.getHeight(currentNode.left), this.getHeight(currentNode.right));
-            currentNode.balance = this.getBalanceNode(currentNode);
+            currentNode.height = 1 + this._maxHeight(this._getHeight(currentNode.left), this._getHeight(currentNode.right));
+            currentNode.balance = this._getBalanceNode(currentNode);
             return;
         }
     }
 
-    getBalanceNode(node){
+    _getBalanceNode(node){
         var left, right = 0;
-        // if(node.left === null && node.right === null){
-        //     return 0;
-        // }
         if(node.left !== null){
             left = node.left.height;
         }
@@ -65,7 +62,7 @@ class BinarySearchTree {
      * @param {NodeTree} rightValue
      * @returns {NodeTree} 
      */
-    maxHeight(leftValue, rightValue){
+    _maxHeight(leftValue, rightValue){
         return (leftValue > rightValue) ? leftValue : rightValue;
     }
 
@@ -74,7 +71,7 @@ class BinarySearchTree {
      * @param {NodeTree} noe
      * @returns {number} 
      */
-    getHeight(node){
+    _getHeight(node){
         if(node == null){
             return 0;
         }
@@ -207,7 +204,7 @@ class BinarySearchTree {
 
     /**
      * Action to delete a node with a specific key.
-     * @param {Number} value The key to be deleted.
+     * @param {number} value The key to be deleted.
      * @return {Boolean} the minimum value in the tree.
      */
     delete(value){
@@ -479,6 +476,11 @@ class BinarySearchTree {
         return this.root = null;
     }
 
+
+    /**
+     * Function to list all nodes in level order
+     * @return {Array} List of leaf values
+     */
     levelOrderQueue() {
         if (this.root == null)
             return null;

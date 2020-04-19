@@ -21,16 +21,21 @@ This repository is a collection about data structures implemented in JavaScript.
 	* Circular Linked List
 * [Queue](https://github.com/FernandoBLima/data-structures/blob/dev/src/DataStructures/Queue)
 * [Stack](https://github.com/FernandoBLima/data-structures/blob/dev/src/DataStructures/Stack)
-* Heap  - In Progress
+* Heap - In Progress
 	* Max-Heap
 	* Min-Heap
-* Priority Queue 
+* Priority Queue - In Progress
 	* Priority Queue
 	* Priority Heap
-* Trie - In Progress
-* Tree  - In Progress
-	* Binary Tree
-	* Avl Tree
+* [Tree](https://github.com/FernandoBLima/data-structures/blob/dev/src/DataStructures/Tree)
+    * Tree
+	* Binary Search Tree
+	* Trie - In Progress
+	* Avl Tree - In Progress
+	* Red-Black Trees - In Progress
+	* B-Tree - In Progress
+	* 2–3 tree - In Progress  
+	* 2–3–4 tree - In Progress  
 * Graph - In Progress
 	* Undirected Graph
 	* Directed Graph

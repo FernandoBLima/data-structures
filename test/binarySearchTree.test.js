@@ -5,7 +5,7 @@ describe('BinarySearchTree', () => {
 
      test('should get binary Tree empty', (done) => {
         expect(binarySearchTree.isEmpty()).toBe(true);
-        expect(binarySearchTree.getHeight()).toBe(0);
+        expect(binarySearchTree._getHeight()).toBe(0);
         expect(binarySearchTree.search(1)).toBe(null);
 
         expect(binarySearchTree.findNode(1)).toBe(false);
