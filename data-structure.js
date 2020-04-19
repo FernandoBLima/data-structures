@@ -20,7 +20,9 @@ const HashTableDouble = require('./src/DataStructures/HashTable/double_hashTable
 
 const Trie = require('./src/DataStructures/Trie/trie');
 
-const BinaryTree = require('./src/DataStructures/Tree/binaryTree');
+const Tree = require('./src/DataStructures/Tree/tree');
+const BinaryTree = require('./src/DataStructures/Tree/BinaryTree');
+const BinarySearchTree = require('./src/DataStructures/Tree/binarySearchTree');
 const AvlTree = require('./src/DataStructures/Tree/avlTrie');
 const AvlTree2 = require('./src/DataStructures/Tree/avlTrie2');
 
@@ -28,6 +30,7 @@ const NodeTree = require('./src/DataStructures/Tree/nodeTree');
 
 const Graph = require('./src/DataStructures/Graph/graph');
 const Dictionary = require('./src/DataStructures/Dictionary/dictionary');
+
 const DisjoinSet = require('./src/DataStructures/DisjointSet/disjointSet');
 
 const SetStructure = require('./src/DataStructures/Set/set');
@@ -48,7 +51,7 @@ module.exports = {
     HeapMin : HeapMin, 
     HeapMax : HeapMax,
     Trie : Trie,
-    BinaryTree : BinaryTree,
+    BinarySearchTree : BinarySearchTree,
     NodeTree : NodeTree,
     Graph : Graph,
     Set : SetStructure,
@@ -57,5 +60,7 @@ module.exports = {
     HashTableChain : HashTableChain,
     HashTableLinearProibing : HashTableLinearProibing,
     HashTableQuadraticProibing: HashTableQuadraticProibing,
-    HashTableDouble: HashTableDouble
+    HashTableDouble: HashTableDouble,
+    Tree: Tree,
+    BinaryTree: BinaryTree
 };
