@@ -63,7 +63,7 @@ describe('BinarySearchTree', () => {
         done();
     });
 
-    test('should test is complete ', (done) => {
+    test('should verify if the binary search tree is complete ', (done) => {
         // is not complete
         expect(binarySearchTree.insert(100)).toBe();
         expect(binarySearchTree.insert(200)).toBe();
@@ -85,7 +85,7 @@ describe('BinarySearchTree', () => {
         done();
     });
 
-    test('should test if is full ', (done) => {
+    test('should verify if the binary search tree is full ', (done) => {
         // is not full
         expect(binarySearchTree.insert(100)).toBe();
         expect(binarySearchTree.insert(200)).toBe();
@@ -114,7 +114,7 @@ describe('BinarySearchTree', () => {
         done();
     });
 
-    test('should test if is percfect ', (done) => {
+    test('should verify if the binary search tree is percfect ', (done) => {
         // is percfect
         binarySearchTree.clear();
         expect(binarySearchTree.insert(100)).toBe();
@@ -157,7 +157,7 @@ describe('BinarySearchTree', () => {
         done();
     });
 
-    test('should to remove a value', (done) => {
+    test('should remove a value', (done) => {
         binarySearchTree.clear();
         expect(binarySearchTree.insert(100)).toBe();
         expect(binarySearchTree.delete(100)).toBe(true);
