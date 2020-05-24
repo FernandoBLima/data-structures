@@ -27,10 +27,10 @@ This repository is a collection about data structures implemented in JavaScript.
 * Priority Queue - In Progress
 	* Priority Queue
 	* Priority Heap
+* [Trie](https://github.com/FernandoBLima/data-structures/blob/dev/src/DataStructures/Trie)
 * [Tree](https://github.com/FernandoBLima/data-structures/blob/dev/src/DataStructures/Tree)
     * Tree
 	* Binary Search Tree
-	* Trie - In Progress
 	* Avl Tree - In Progress
 	* Red-Black Trees - In Progress
 	* B-Tree - In Progress

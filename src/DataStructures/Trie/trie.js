@@ -6,6 +6,10 @@ class Trie {
         this.length = 0;
     }
 
+    /**
+     * Action to insert a string.
+     * @param {number} key The string to be inserted.
+     */
     insert(key){
         var currentValue = this.root;
         
@@ -23,10 +27,11 @@ class Trie {
         currentValue.isEndOfWord = true;
     }
 
+    /**
+     * Action to insert a string.
+     * @param {number} key The string to be inserted.
+     */
     insertRecursive(key){
-        // if(!this.root) {
-        //     return null;
-        // }
         this.length++;
         this._addNode(this.root, key);
     }
@@ -48,7 +53,11 @@ class Trie {
         this._addNode(child, remainder);
     }
 
-
+    /**
+     * Returns the node, if it exists on the trie
+     * @param {string} key The string to be searched in the structure.
+     * @return {TrieNode} Node found if it exists
+    */   
     search(key){
         var currentValue = this.root;
 
@@ -63,61 +72,82 @@ class Trie {
         return (currentValue != null && currentValue.isEndOfWord);
     }
 
+    /**
+     * Checks whether the list is empty or not
+     * @return {boolean} 
+    */
     isEmpty(){
         return this.length > 0 ? false : true;
     }
 
+    /**
+     * Returns the size of the tree
+     * @return {number}
+     */
     getLength(){
         return this.length;
     }
 
+    /**
+     * Clear the structure
+     */
+    clear(){
+        this.root = new TrieNode(true, '*');
+    }
+
+    /**
+     * Action to remove string with a specific prefix.
+     * @param {Boolean}
+     */
     remove(key) {
         if(this.search(key)){
             this._removeNode(this.root ,key, key, 0);
+            return true;
         }else{
             return false;
         }
     }
 
     _removeNode(node, keySlice ,key, index) {
-    //    if(index == key.length){
-    //         if(node.isEndOfWord && !this.hasChild(node.children)){
-    //             node.remove = true;
-    //             return true;
-    //         }
-    //         // return false;
-    //     }
         var letter = key[index];
         var current = node.children[letter];
         if(current){
             keySlice = key.slice(index + 1, key.length);
             var shouldRemove = this._removeNode(current, keySlice, key, index + 1 );
-            if(shouldRemove && !this.hasChild(node.children[letter].children)){
+            if(shouldRemove && !this._hasChild(node.children[letter].children)){
                 this.length--;
                 delete node.children[letter];
                 key = keySlice;
                 return true;
+            }else{
+                return false;
             }
         }
         return true;
     }
 
 
-    hasChild(obj) {
+    _hasChild(obj) {
         var count = 0;
         for(var key in obj) {
-            // if(obj.hasOwnProperty(key)){
-                count = count + 1;
-            // }
+            count = count + 1;
         }
         return count > 0 ? true : false;
     }
 
+    /**
+     * Returns a list of words, if it exists on the trie
+     * @param {string} key The string to be searched in the structure.
+     * @return [strings] Array of strings if if exists on the
+    */   
     suggestionWord(key) {
-        var search = this.searchWord(key);
-        if(search != false){
+        var word = this.searchWord(key);
+        if(word){
             var suggestions = [];
-            return this._suggestionWord(search,key , key, key, suggestions);
+            if(word.isEndOfWord){
+                suggestions.push(key);
+            }
+            return this._suggestionWord(word, key, suggestions);
         }
         return [];
     }
@@ -125,34 +155,33 @@ class Trie {
 
     searchWord(key){
         var currentValue = this.root;
-
         for (let index = 0; index < key.length; index++) {
             const element = key[index];
             if (currentValue.children[element]) {
                 currentValue = currentValue.children[element];
             } else{
-                return false;
+                return null;
             }
         }
         return currentValue;
     }
 
-    _suggestionWord(node, key, word, lastWord, arra){
+    _suggestionWord(node, lastWord, suggestions){
 
         var letters = Object.keys(node.children); 
         for (let index = 0; index < letters.length; index++) {
             const element = letters[index];
             if(node.children[element].isEndOfWord){
-                arra.push(lastWord + node.children[element].character);
-                this._suggestionWord(node.children[element], key, word, '', arra);
+                suggestions.push(lastWord + node.children[element].character);
+                this._suggestionWord(node.children[element], lastWord + node.children[element].character, suggestions);
             }else{
                 var rest = lastWord + node.children[element].character;
-                this._suggestionWord(node.children[element], key, word, rest, arra);
+                this._suggestionWord(node.children[element], rest, suggestions);
             }
         }
-        return arra;
-    }
 
+        return suggestions;
+    }
 
 }
 

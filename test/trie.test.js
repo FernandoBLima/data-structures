@@ -8,6 +8,7 @@ describe('Trie', () => {
         expect(trie.getLength()).toBe(0);
         expect(trie.getLength()).toBe(0);
         expect(trie.isEmpty()).toBe(true);
+        expect(trie.clear()).toBe();
         done();
     });
 
@@ -15,7 +16,7 @@ describe('Trie', () => {
         trie.insert('a');
         expect(trie.getLength()).toBe(1);
         expect(trie.isEmpty()).toBe(false);
-        expect(trie.remove('a')).toBe();
+        expect(trie.remove('a')).toBe(true);
     });
 
     test('should create the first element in trie', () => {
@@ -25,10 +26,11 @@ describe('Trie', () => {
     });
 
     test('should add one letter and delete the new element in trie', () => {
+        const trie = new Trie();
         trie.insert('aba');
-        expect(trie.getLength()).toBe(4);
-        trie.remove('aba');
         expect(trie.getLength()).toBe(3);
+        trie.remove('aba');
+        expect(trie.getLength()).toBe(0);
     });
 
     test('should not remove a world that do not exist in trie', () => {
