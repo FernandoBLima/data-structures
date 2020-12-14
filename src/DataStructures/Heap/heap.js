@@ -1,13 +1,8 @@
-/** 
- *  TODO:
-    * merge (union): joining two heaps to form a valid new heap containing all the elements of both, preserving the original heaps.
-*/
-
 class Heap {
 
     constructor() {
         this.list = [];
-        this.size = 0;
+        // this.size = 0;
     }
 
     /**
@@ -16,13 +11,13 @@ class Heap {
     */
     insert(value){
         this.list.push(value);
-        this.size++;
+        // this.size++;
         var childrenIndex = this.list.indexOf(value);
 
-        while(this.hasParent(childrenIndex)){
-            if(this.shouldSwap(childrenIndex, this.getParentIndex(childrenIndex))){
-                this.swapElements(childrenIndex, this.getParentIndex(childrenIndex));
-                childrenIndex = this.getParentIndex(childrenIndex);
+        while(this.hasParentByIndex(childrenIndex)){
+            if(this.shouldSwap(childrenIndex, this.getParentByIndex(childrenIndex))){
+                this.swapElements(childrenIndex, this.getParentByIndex(childrenIndex));
+                childrenIndex = this.getParentByIndex(childrenIndex);
             } else{
                 break;
             }
@@ -70,30 +65,31 @@ class Heap {
     swapToRemove(){
         this.swapElements(this.list.length - 1, 0);
         this.list[this.list.length - 1] = null;
-        this.size--;
-        this.list = this.list.filter(function (el) {
-            return el != null;
+        // this.size--;
+        this.list = this.list.filter(function (element) {
+            return element != null;
         });
     }
 
     /**
-        * Action to remove a specific value
-        * @param {number} value
+        * Action to merge two heap structures 
+        * @param {Heap} 
     */
-    remove(value){
-        var childrenIndex = this.list.indexOf(value);
-        if(childrenIndex != -1){
-            if(this.hasParent(childrenIndex)){
-                do{
-                    this.swapElements(childrenIndex, this.getParentIndex(childrenIndex));
-                    childrenIndex = this.getParentIndex(childrenIndex);
-                } while(this.hasParent(childrenIndex));
-            }
-            this.swapToRemove();
-            this.heapify(0);
-        }else{
-            throw new Error('Value not found!');
-        }
+    mergeHeaps(heap){
+        var array = []
+        for (var i = 0; i < this.list.length; i++) { 
+            array[i] = this.list[i]; 
+        } 
+        for (var i = 0; i < heap.list.length; i++) { 
+            array[this.list.length + i] = heap.list[i]; 
+        } 
+        var total = this.list.length + heap.list.length; 
+        this.list = array
+
+        // Builds a max heap of given arr[0..n-1] 
+        for (var i = total / 2 - 1; i >= 0; i--) { 
+            this.heapify(Math.floor(i))
+        } 
     }
 
     /**
@@ -121,10 +117,10 @@ class Heap {
 
     /**
       * Returns the parent node
-      * @param {number} childIndex
-      * @return {number}
+      * @param {Number} childIndex
+      * @return {Number}
     */
-    getParentIndex(childIndex){
+    getParentByIndex(childIndex){
         if(childIndex > 0){
             return parseInt((childIndex - 1) / 2);
         } else {
@@ -134,16 +130,21 @@ class Heap {
 
     /**
      * Check if the child node has a parent
-     * @param {number} childIndex
-     * @return {boolean}
+     * @param {Number} childIndex
+     * @return {Boolean}
     */
-    hasParent(childIndex) {
-        var value = this.getParentIndex(childIndex);
+    hasParentByIndex(childIndex) {
+        if(childIndex >= this.getSize()) {
+            return false;
+        }
+        var value = this.getParentByIndex(childIndex);
+        // console.log(value)
         return value >= 0 ? true : false;
     }
     
     /**
       * Return the number of items in the heap.
+      * @return {Number}
     */
     getSize(){
         return this.list.length;
@@ -151,13 +152,16 @@ class Heap {
 
     /**
       * Action to return the last element in the Heap
+      * @return {Number}
     */
     getLastElement(){
-        return this.list[this.heapSize - 1];
+        var size = this.getSize();
+        return this.list[size - 1];
     }
 
     /**
       * Action to check if heap is empty
+      * @return {Boolean}
     */
     isEmpty(){
         return this.list.length > 0 ? false : true;
@@ -165,67 +169,90 @@ class Heap {
 
     /**
      * Action to  find a maximum item of a max-heap, or a minimum item of a min-heap, respectively 
-    */
+     * @return {Number}
+     */
     peek(){
         return this.list[0];
     }
 
     /**
+     * Action to check if the left child exists by index
       * @param {number} parentIndex
       * @return {boolean}
     */
-    hasLeftChild(parentIndex) {
+    hasLeftChildByIndex(parentIndex) {
         return this.getLeftChildrenIndex(parentIndex) < this.list.length;
     }
 
     /**
+      * Action to check if the left child exists by index
       * @param {number} parentIndex
       * @return {boolean}
     */
-    hasRightChild(parentIndex) {
+    hasRightChildByIndex(parentIndex) {
         return this.getRightChildrenIndex(parentIndex) < this.list.length;
     }   
 
     /**
+      * Action to get the right child by index
       * @param {number} parentIndex
-      * @return {boolean}
+      * @return {Number}
     */
-    getLeftChild(parentIndex) {
-        return this.list[this.getLeftChildrenIndex(parentIndex)];
-    }
-
-    /**
-      * @param {number} parentIndex
-      * @return {boolean}
-    */
-    getRightChild(parentIndex) {
+    getRightChildValueByIndex(parentIndex) {
         return this.list[this.getRightChildrenIndex(parentIndex)];
     }
 
     /**
-      * Returns the right child node
+      * Action to get the left child by index
       * @param {number} parentIndex
-      * @return {number} 
+      * @return {Number}
+    */
+    getLeftChildValueByIndex(parentIndex) {
+        return this.list[this.getLeftChildrenIndex(parentIndex)];
+    }
+
+    /**
+     * Action to get the left child by index
+     * @param {number} parentIndex
+     * @return {Number}
+    */
+   getParentValueByIndex(parentIndex) {
+    return this.list[this.getParentByIndex(parentIndex)];
+}
+
+
+    /**
+      * Returns the right child index
+      * @param {number} parentIndex
+      * @return {Number} 
     */
     getRightChildrenIndex(parentIndex){
         return (2*parentIndex) + 2;
     }
 
     /**
-      * Returns the left  child node
+      * Returns the left child index
       * @param {number} parentIndex
-      * @return {number} 
+      * @return {Number} 
     */    
     getLeftChildrenIndex(parentIndex){
         return (2*parentIndex)+1;
     }   
 
     /** 
-     * Return the list of items in heap
+     * Return the list of items in the heap
       * @return {Array}
     */
     displayHeap() {
         return this.list;
+    }
+
+    /** 
+     * Clear the heap structure
+      * @return {Array}
+    */
+    clear() {
+        this.list = [];
     }
 
 }

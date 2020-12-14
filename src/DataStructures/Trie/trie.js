@@ -40,7 +40,6 @@ class Trie {
     _addNode(node, word) {
         if(!node || !word) return null;
 
-        node.prefixes++;
         var child = node.children[word[0]];
         if(!child) {
             child = new TrieNode(false, word[0]);

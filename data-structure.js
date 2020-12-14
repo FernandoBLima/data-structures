@@ -7,7 +7,6 @@ const Queue = require('./src/DataStructures/Queue/queue');
 const Stack = require('./src/DataStructures/Stack/stack');
 
 const PriorityQueue = require('./src/DataStructures/PriorityQueue/priorityQueue');
-const PriorityHeap = require('./src/DataStructures/PriorityQueue/priorityHeap');
 
 const HeapMin = require('./src/DataStructures/Heap/heapMin');
 const HeapMax = require('./src/DataStructures/Heap/heapMax');
@@ -47,7 +46,6 @@ module.exports = {
     Queue : Queue,
     Stack : Stack,
     PriorityQueue: PriorityQueue,
-    PriorityHeap : PriorityHeap,
     HeapMin : HeapMin, 
     HeapMax : HeapMax,
     Trie : Trie,
