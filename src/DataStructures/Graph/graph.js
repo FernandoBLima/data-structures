@@ -1,43 +1,141 @@
 
 class Graph {
     constructor() {
-        this.vertices = [];
-        this.edges = 0;
-        this.adjacents = [];
-        this.edgeTo = [];
-        this.visited = [];
+        this.adjacencyList = {}
     }
 
     /**
-     * Action to add a vertex 
+     * Action to add a vertex in the graph
      * @param {number} vertex
     */
     addVertex(vertex){
-        this.vertices.push(vertex);
-        this.adjacents[vertex] = []; 
+        this.adjacencyList[vertex] = [];
     }
 
     /**
-     * Action to add edge from the vertex to another vertex
+     * Action to add vertex edge to another
      * @param {number} vertex1
      * @param {number} vertex2
     */
     addEdgeUndirected(vertex1, vertex2) { 
-        this.adjacents[vertex1].push(vertex2); 
-        this.edges++;
-        this.adjacents[vertex2].push(vertex1); 
-        this.edges++;
+        if(!this.adjacencyList[vertex1]){
+            this.addVertex(vertex1)
+        }
+        if(!this.adjacencyList[vertex2]){
+            this.addVertex(vertex2)
+        }
+        
+        if(!this.adjacencyList[vertex1].includes(vertex2))
+            this.adjacencyList[vertex1].push(vertex2);    
+
+        if(!this.adjacencyList[vertex2].includes(vertex1))
+            this.adjacencyList[vertex2].push(vertex1); 
     }
 
-
     /**
-     * Action to add edge from the vertex to another vertex
+     * Action to add bidirectional edge between two vertices
      * @param {number} vertex1
      * @param {number} vertex2
     */
     addEdgeDirected(vertex1, vertex2) { 
-        this.adjacents[vertex1].push(vertex2); 
-        this.edges++;
+        if(!this.adjacencyList[vertex1]){
+            this.addVertex(vertex1)
+        }
+        if(!this.adjacencyList[vertex2]){
+            this.addVertex(vertex2)
+        }
+
+        if(!this.adjacencyList[vertex1].includes(vertex2))
+            this.adjacencyList[vertex1].push(vertex2);    
+    }
+
+    /**
+     * Action to remove an edge
+     * @param {number} vertex1
+     * @param {number} vertex2
+    */
+    removeEdge(vertex1, vertex2) { 
+        if( this.adjacencyList[vertex1] && this.adjacencyList[vertex2] && this.adjacencyList[vertex1].includes(vertex2)){
+            var adjacents = this.adjacencyList[vertex1];
+            var index = adjacents.indexOf(vertex2);
+            adjacents = adjacents.splice(index,1);
+        }
+    }
+
+    /**
+     * Action to remove a vertex in the graph
+     * @param {number} vertex
+    */
+    removeVertex(vertex) { 
+        if(vertex in this.adjacencyList){
+            delete this.adjacencyList[vertex];
+            var vertexList = Object.keys(this.adjacencyList);
+            vertexList.forEach(element => {
+                if(this.adjacencyList[element].includes(vertex) == true){
+                    var index = this.adjacencyList[element].indexOf(vertex);
+                    this.adjacencyList[element].splice(index,1);
+                }
+            });
+        }
+    }
+
+    /**
+     * Action to determine wether the graph contains the vertex or not
+     * @param {number} vertex
+     * @returns {boolean}
+    */
+    containsVertex(vertex){
+        var contains = this.adjacencyList[vertex];
+        return contains ? true : false;
+    }
+
+    /**
+     * Action to get all vertices of a given vertex
+     * @param {number} vertex
+     * @returns {Array}
+    */
+    getNeighbors(vertex){
+        return (this.containsVertex(vertex) == true) ? this.adjacencyList[vertex] : null
+    }
+
+    /**
+     * Action to get the vertex in the graph
+     * @param {number} vertex
+     * @returns {Number}
+    */
+    getVertex(vertex){
+        return this.adjacencyList[vertex] ? this.adjacencyList[vertex] : null;
+    }
+
+    /**
+     * Returns the number of vertex in the graph
+     * @returns {number}
+    */
+    getNumVertex(){
+        return Object.keys(this.adjacencyList).length;
+    }
+    
+    /**
+     * Returns the number of edges in the graph
+     * @returns {number}
+    */
+    getNumEdges(){
+        var sum = 0; 
+        var numVertex = Object.keys(this.adjacencyList);
+        for (var i = 0; i < numVertex.length; i++){
+            var vertex = numVertex[i];
+            sum += this.adjacencyList[vertex].length;
+        }
+
+        return  sum; 
+    }
+
+    /**
+     * Returns whether the graph is empty or not
+     * @return {boolean} Whether the graph is empty.
+    */
+    isEmpty(){
+        return Object.keys(this.adjacencyList).length > 0 ? false : true;
     }
 
     /**
@@ -47,9 +145,8 @@ class Graph {
      * @returns {boolean}
     */
     isAdjacent(value1, value2){
-        var vertice = this.vertices[value1];
-        if(vertice != null){
-            var filtered = this.adjacents[vertice].find(function(element) {
+        if(this.adjacencyList[value1] != null){
+            var filtered = this.adjacencyList[value1].find(function(element) {
                 if(element === value2){
                     return true;
                 }
@@ -62,129 +159,48 @@ class Graph {
     }
 
     /**
-     * Action to determines if the graph contains the vertix or not
-     * @param {number} vertex
-     * @returns {boolean}
+     * Display adjacency list representation of graph
     */
-    containsVertex(vertex){
-        var contains = this.vertices[vertex];
-        if(contains != null) return true;
-        else return false;
-    }
-
-    /**
-     * Action get all vertices of a give vertix
-     * @param {number} vertex
-     * @returns {Array}
-    */
-    getNeighbors(vertex){
-        var contaisVertex = this.containsVertex(vertex);
-        if(contaisVertex)  return this.adjacents[vertex];
-        else return [];
-    }
-
-    /**
-     * Action get all vertices
-     * @returns {Array}
-    */
-    getVertex(){
-        return this.vertices;
-    }
-
-    /**
-     * Returns the number of vertex
-     * @returns {number}
-    */
-    getNumVertex(){
-        return this.vertices.length;
-    }
-
-    /**
-     * Returns the number of edges
-     * @returns {number}
-    */
-    getNumEdges(){
-        return this.edges;
-    }
-    
-    /**
-     *  Traversing or searching graph data structures, 
-     *  explores all of the neighbor nodes at the present depth prior to 
-     *  moving on to the nodes at the next depth level.
-    */
-    depthFirstSearch() {
-        if(this.vertices.length === 0){
-            return;
-        }
-        this.marked = [];
-        for (var i = 0; i < this.vertices.length; ++i) { 
-            this.marked[i] = false;
-        }
-        this._depthFirstSearch(this.vertices[0]);
-    }
-
-    _depthFirstSearch(vertex){
-        this.marked[vertex] = true;
-        // if(this.adjacents[vertex]){
-            console.log('Visited Vertex ', vertex);
-        // }
-        var listAdjacents = this.adjacents[vertex];
-        for (let index = 0; index < listAdjacents.length; index++) {
-            const element = listAdjacents[index];
-            if(!this.marked[element]){
-                this._depthFirstSearch(element);
-            }
-        }
-    }
-
-    /**
-     *  Traversing or searching graph data structures, 
-     *  The algorithm starts at the root node and explores as far 
-     *  as possible along each branch before backtracking.
-    */
-    breadthFirstSearch() {
-        if(this.vertices.length === 0){
-            return;
-        }else {
-            this.marked = [];
-            for (var i = 0; i < this.vertices.length; ++i) { 
-                this.marked[i] = false;
-            }
-            this._breadthFirstSearch(this.vertices[0]);
-        }
-    }
-
-    _breadthFirstSearch(vertex){
-        var queue = [];
-        this.marked[vertex] = true;
-        queue.push(vertex);
-        while(queue.length > 0){
-            var u = queue.shift();
-            // if(u != null){
-                console.log('Visited Vertex: ' + u);
-            // }
-            var listAdjacents = this.adjacents[u];
-            for (let index = 0; index < listAdjacents.length; index++) {
-                const element = listAdjacents[index];
-                if(!this.marked[element]){
-                    this.edgeTo[element] = u;
-                    this.marked[element] = true;
-                    queue.push(element);
+    print_adjacency_list() {
+        var str = ''; 
+        if(this.getNumVertex() > 0) {
+            var numVertex = Object.keys(this.adjacencyList);
+            for (let i = 0; i < numVertex.length; i++) {
+                var vertex = numVertex[i];
+                str += vertex + ' -> ';
+                var neighbors = this.getNeighbors(vertex); 
+                for (let j = 0; j < neighbors.length; j++) {
+                    str += neighbors[j] + ' ';
                 }
+                str += '\n';
             }
+            console.log(str);
+        } else {
+            console.log('The Graph is empty');
         }
     }
 
-    // /**
-    //  * Action to mark all vertex not visited
-    //  * @param {number} vertex
-    //  * @returns {Array}
-    // */
-    // _markAllNotVisited(){
-    //     for (var i = 0; i < this.vertices; ++i) { 
-    //         this.visited[i] = false;
-    //     }
-    // }
+    /**
+     * Display adjacency matrix representation of graph
+    */
+    print_adjacency_matrix(){
+        var vertices = Object.keys(this.adjacencyList);
+        var matrix = [];
+        for(var i=0; i< vertices.length; i++) {
+            matrix[i] = Array(vertices.length).fill(0);
+        }
+
+        Object.keys(this.adjacencyList).forEach(element => {
+            var elements = this.adjacencyList[element];
+            elements.forEach(value => {
+                matrix[element][value] = 1;
+            });
+        });
+
+        for(var i=0; i< vertices.length; i++) {
+            console.log(matrix[i])
+        }
+    }
 
     /**
      * Action to count all paths that exist in graph between two vertex
@@ -194,17 +210,22 @@ class Graph {
     */
     countPaths(from, to){
         var pathCount = 0;
-        var marked = [...this.visited];
-        pathCount = this._countPath(from, to, marked, pathCount);
+        var dictt = {};
+
+        Object.keys(this.adjacencyList).forEach(function(item) {
+            dictt[item] = false;
+        })
+
+        pathCount = this._countPath(from, to, dictt, pathCount);
         return pathCount;
     }
 
     _countPath(from, to, marked, pathCount){
         marked[from] = true;
         if(from === to){
-            pathCount++;
+            pathCount = pathCount + 1
         } else{
-            var listAdjacents = this.adjacents[from];
+            var listAdjacents = this.adjacencyList[from];
             for (let index = 0; index < listAdjacents.length; index++) {
                 const element = listAdjacents[index];
                 if(!marked[element]){
@@ -217,64 +238,153 @@ class Graph {
     }
 
     /**
-     * Action to get the path that exist in graph between two vertex
+     * Action to print all possible destinations
      * @param {number} from
      * @param {number} to
-     * @returns {number}
+     * @returns {array}
     */
-    getPath(from, to){
-        // if(!this.hasPath(to)){
-        //     return null;
-        // }
-        var path = [];
-        for (var i = to; i != from; i = this.edgeTo[i]) { 
-            path.push(i);
-        } 
-        path.push(from); 
-        return path;
-    }
-    
-    /**
-     * Action to verify if the vertex already was visited
-     * @returns {boolean}
-    */
-    // hasPath(v) { 
-    //     return this.marked[v];
-    // }
+    print_all_path_destination(from, to){
+        var pathCount = 0;
+        var dictt = {};
 
-
-    getLength() {
-        return this.vertices.length;
+        Object.keys(this.adjacencyList).forEach(function(item) {
+            dictt[item] = false;
+        })
+        var localPathList = [from]
+        pathCount = this._print_all_path_destination(from, to, dictt, localPathList);
+        return pathCount;
     }
 
-    /**
-     * Returns whether the tree is empty or not
-     * @return {boolean} Whether the tree is empty.
-    */
-    isEmpty(){
-        return this.vertices.length > 0 ? false : true;
-    }
-   
-    /**
-     * Display string representation of grah
-    */
-    toString() {
-        var str = ''; 
-        if(this.vertices.length > 0) {
-            for (let i = 0; i < this.vertices.length; i++) {
-                str += this.vertices[i] + ' -> ';
-                var neighbors = this.getNeighbors(i); 
-                for (let j = 0; j < neighbors.length; j++) {
-                    str += neighbors[j] + ' ';
-                }
-                str += '\n';
+
+    _print_all_path_destination(from, destination, marked, localPathList){
+        if (from == destination) {
+            console.log(localPathList)
+            return
+        }
+
+        marked[from] = true;
+        var listAdjacents = this.adjacencyList[from];
+        for (let index = 0; index < listAdjacents.length; index++) {
+            const element = listAdjacents[index];
+            if(!marked[element]){
+                localPathList.push(element);
+                this._print_all_path_destination(element, destination, marked, localPathList);
+                localPathList.splice(localPathList.indexOf(element), 1); 
             }
-            console.log(str);
-        } else {
-            console.log('The Graph is empty');
+        }
+        marked[from] = false;
+    }
 
+    /**
+     *  Action to explore all nodes using BFS algorithm
+     *  @param {number} current_vertice
+    */
+    breadthFirstSearch(current_vertice) {
+        var vertices = Object.keys(this.adjacencyList);
+        if(vertices.length === 0){
+            return;
+        }else {
+            var discovered = {};
+            vertices.forEach(function(item) {
+                discovered[item] = false;
+            })
+            this._breadthFirstSearch(current_vertice, discovered);
         }
     }
+
+    _breadthFirstSearch(vertex, discovered){
+        var queue = [];
+        discovered[vertex] = true;
+        queue.push(vertex);
+
+        while(queue.length > 0){
+            var u = queue.shift();
+            console.log('Visited Vertex: ' + u);
+
+            var listAdjacents = this.adjacencyList[u].sort((a, b) => a - b)
+            listAdjacents = listAdjacents.sort()
+
+            for (let index = 0; index < listAdjacents.length; index++) {
+                const element = listAdjacents[index];
+                if(!discovered[element]){
+                    discovered[element] = true;
+                    queue.push(element);
+                }
+            }
+        }
+    }
+
+    /**
+     *  Action to explore all nodes using DFS algorithm
+     *  @param {number} current_vertice
+    */
+    depthFirstSearch(current_vertice) {
+        var vertices = Object.keys(this.adjacencyList);
+        if(vertices.length === 0){
+            return;
+        }
+        var discovered = {};
+        vertices.forEach(function(item) {
+            discovered[item] = false;
+        })
+        this._depthFirstSearch(current_vertice, discovered);
+    }
+
+    _depthFirstSearch(current_vertice, discovered){
+        discovered[current_vertice] = true;
+        console.log('Visited Vertex ', current_vertice);
+        
+        var listAdjacents = this.adjacencyList[current_vertice].sort((a, b) => a - b)
+        for (let index = 0; index < listAdjacents.length; index++) {
+            const element = listAdjacents[index];
+            if(!discovered[element]){
+                this._depthFirstSearch(element, discovered);
+            }
+        }
+    }
+ 
+
+    /**
+     *  Action to check whether the graph is circular or not.
+    */
+    isCyclic() {
+        var vertices = Object.keys(this.adjacencyList);
+        if(vertices.length === 0){
+            return false;
+        }
+        var visited = {};
+        var recStack = {};
+        vertices.forEach(function(item) {
+            visited[item] = false;
+            recStack[item] = false;
+        })
+        for(let vertex of vertices) {
+            if(!visited[vertex]) {
+              let cycleDetected = this._cycleDetect(vertex, visited, recStack);
+              if(cycleDetected) return true;
+              else return false;
+            }
+         }
+    }
+
+   _cycleDetect(index, visited, explore) {
+        if(visited[index]) return false;
+        if(explore[index]) return true;
+  
+        explore[index] = true;
+
+        var neighbors = this.adjacencyList[index]; 
+        for(let neighbor of neighbors) {
+            if(!visited[neighbor]) {
+               let cycleDetected = this._cycleDetect(neighbor, visited, explore);
+               if(cycleDetected) return true;
+            }
+        }
+        explore[index] = false;
+        visited[index] = true;
+        return false;
+    }
+
 
 }
 
