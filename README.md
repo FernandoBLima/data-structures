@@ -33,7 +33,7 @@ This repository is a collection about data structures implemented in JavaScript.
 	* B-Tree - (To Do)
 	* 2–3 tree - (To Do)
 	* 2–3–4 tree - (To Do)u
-* [Graph List](https://github.com/FernandoBLima/data-structures/tree/dev/src/DataStructures/Graph)
+* [Graph](https://github.com/FernandoBLima/data-structures/tree/dev/src/DataStructures/Graph)
 	* Undirected Graph
 	* Directed Graph
 	* Breadth-First Search (BFS)
